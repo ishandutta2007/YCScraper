@@ -12,7 +12,7 @@ import pprint as pp
 import os
 
 edge_options = Options()
-edge_options.headless = True
+edge_options.add_argument("--headless=new")
 service = Service(executable_path="C:/edgedriver_win64/msedgedriver.exe")
 
 driver = webdriver.Edge(service=service, options=edge_options)
@@ -20,7 +20,7 @@ wait = WebDriverWait(driver, 10)
 
 # Generate possible YC batch codes (S05 to S26, W06 to W26)
 batches = []
-for year in range(2025, 2010, -1):
+for year in range(2026, 2010, -1):
     batches.append(f"Summer%20{year:04d}")
     if year >= 6:
         batches.append(f"Winter%20{year:04d}")
@@ -33,13 +33,13 @@ try:
         print(f"Processing batch: {batch}")
         url = f"{base_url}/companies?batch={batch}"
         driver.get(url)
-        time.sleep(1)
+        time.sleep(3)
 
         # Scroll to load all companies in the batch
         last_height = driver.execute_script("return document.body.scrollHeight")
         while True:
             driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-            time.sleep(1)
+            time.sleep(3)
             new_height = driver.execute_script("return document.body.scrollHeight")
             if new_height == last_height:
                 break
@@ -54,14 +54,13 @@ try:
                 full_url = base_url + href if href.startswith("/") else href
                 company_urls.add(full_url)
 
-        print(f"Found {len(company_urls)} companies in batch {batch}")
-        print(f"which are: ")
+        print(f"Found {len(company_urls)} companies in batch {batch}:")
         pp.pprint(company_urls)
 
         for company_url in company_urls:
             try:
                 driver.get(company_url)
-                time.sleep(1)
+                time.sleep(3)
 
                 company_name = company_url.split("/")[-1].replace("-", "_").title()
                 founder_elements = driver.find_elements(
@@ -75,7 +74,9 @@ try:
                         founder_name_el = founder_el.find_element(
                             By.CSS_SELECTOR, "div.text-xl"
                         )
+                        # print("founder_name_el", founder_name_el)
                         founder_name = founder_name_el.text if founder_name_el else None
+                        print("founder_name", founder_name)
 
                         linkedin_el = (
                             founder_el.find_element(
@@ -115,18 +116,18 @@ try:
                         github = github_el.get_attribute("href") if github_el else None
 
                         if linkedin or twitter:  # Only add if at least one social link
+                            batch_swapped = "_".join(batch.replace("%20", "_").split('_')[::-1])
                             data.append(
                                 [
                                     company_name,
-                                    batch.replace("%20", "_"),
+                                    batch_swapped,
                                     founder_name,
                                     linkedin or "",
                                     twitter or "",
                                     github or "",
                                 ]
                             )
-                            print(f"Added: {company_name} - {founder_name}")
-
+                            print(f"Added:", company_name, batch.replace("%20", "_"), founder_name, linkedin or "", twitter or "", github or "")
                     except Exception as e:
                         print(f"Error extracting founder from {company_url}: {e}")
                         continue
