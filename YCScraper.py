@@ -7,16 +7,16 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.microsoft import EdgeChromiumDriverManager  # Changed to Edge manager
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
+import pprint as pp
 
 # Setup Edge driver with automatic management
 service = Service(executable_path="C:/edgedriver_win64/msedgedriver.exe")
 driver = webdriver.Edge(service=service)
-# driver.get("https://www.google.com")
 wait = WebDriverWait(driver, 10)
 
 # Generate possible YC batch codes (S05 to S26, W06 to W26)
 batches = []
-for year in range(2026, 2024, -1):
+for year in range(2026, 2025, -1):
     batches.append(f"Summer%20{year:04d}")
     if year >= 6:
         batches.append(f"Winter%20{year:04d}")
@@ -51,41 +51,30 @@ try:
                 company_urls.add(full_url)
 
         print(f"Found {len(company_urls)} companies in batch {batch}")
+        print(f"which are: ")
+        pp.pprint(company_urls)
 
         for company_url in company_urls:
             try:
                 driver.get(company_url)
                 time.sleep(2)
 
-                # Get company name (adjust selector if needed)
-                company_name = driver.find_element(By.TAG_NAME, "h1").text
+                company_name = company_url.split("/")[-1]#.replace("_"." ").title()
+                print("company_name=", company_name)
 
-                # Find founders section (adjust XPath/CSS if needed)
-                # Assuming founders are in divs with class containing 'founder' or similar
-                founder_elements = driver.find_elements(By.CSS_SELECTOR, ".founder, [data-testid='founder'], div[contains(@class, 'founder')]")
-                if not founder_elements:
-                    # Alternative: look for section with 'Founders' text
-                    founders_section = driver.find_element(By.XPATH, "//*[contains(text(), 'Founders') or contains(text(), 'Team')]//following-sibling::*")
-                    founder_elements = founders_section.find_elements(By.TAG_NAME, "div")  # Adjust as needed
+                founder_elements = driver.find_elements(By.CSS_SELECTOR, "div[contains(@class, 'ycdc-card-new')]")
+                print(founder_elements)
 
                 for founder_el in founder_elements:
                     try:
-                        # Get founder name (adjust selector)
-                        name_elements = founder_el.find_elements(By.TAG_NAME, "h3") or founder_el.find_elements(By.TAG_NAME, "h4") or founder_el.find_elements(By.CSS_SELECTOR, ".name")
-                        founder_name = next((el.text for el in name_elements if el.text.strip()), None)
-                        if not founder_name:
-                            continue
-
-                        # Get LinkedIn link
                         linkedin_el = founder_el.find_element(By.CSS_SELECTOR, "a[href*='linkedin']") if founder_el.find_elements(By.CSS_SELECTOR, "a[href*='linkedin']") else None
                         linkedin = linkedin_el.get_attribute('href') if linkedin_el else None
 
-                        # Get Twitter/X link
                         twitter_el = founder_el.find_element(By.CSS_SELECTOR, "a[href*='twitter'], a[href*='x.com']") if founder_el.find_elements(By.CSS_SELECTOR, "a[href*='twitter'], a[href*='x.com']") else None
                         twitter = twitter_el.get_attribute('href') if twitter_el else None
 
                         if linkedin or twitter:  # Only add if at least one social link
-                            data.append([company_name, batch, founder_name, linkedin or '', twitter or ''])
+                            data.append([company_name, batch, linkedin or '', twitter or ''])
                             print(f"Added: {company_name} - {founder_name}")
 
                     except Exception as e:
@@ -102,7 +91,7 @@ finally:
 # Save to CSV
 with open('yc_founders_social.csv', 'a', newline='', encoding='utf-8') as f:
     writer = csv.writer(f)
-    writer.writerow(['Company', 'Batch', 'Founder', 'LinkedIn', 'Twitter'])
+    writer.writerow(['Company', 'Batch', 'LinkedIn', 'Twitter'])
     writer.writerows(data)
 
 print(f"Scraping complete. Data saved to yc_founders_social.csv with {len(data)} entries.")
