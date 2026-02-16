@@ -12,16 +12,15 @@ import pprint as pp
 import os
 
 edge_options = Options()
-edge_options.add_argument("--headless=new")
+edge_options.headless = True
 service = Service(executable_path="C:/edgedriver_win64/msedgedriver.exe")
-service = Service()
 
 driver = webdriver.Edge(service=service, options=edge_options)
 wait = WebDriverWait(driver, 10)
 
 # Generate possible YC batch codes (S05 to S26, W06 to W26)
 batches = []
-for year in range(2026, 2025, -1):
+for year in range(2025, 2010, -1):
     batches.append(f"Summer%20{year:04d}")
     if year >= 6:
         batches.append(f"Winter%20{year:04d}")
