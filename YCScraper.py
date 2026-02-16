@@ -60,12 +60,9 @@ try:
                 driver.get(company_url)
                 time.sleep(2)
 
-                company_name = company_url.split("/")[-1]#.replace("_"." ").title()
-                print("company_name=", company_name)
-
+                company_name = company_url.split("/")[-1].replace("-"."_").title()
                 founder_elements = driver.find_elements(By.CSS_SELECTOR, "div.ycdc-card-new")
-                pp.pprint(founder_elements)
-
+                print(f"company_name={company_name} has {len(founder_elements)} founders")
                 for founder_el in founder_elements:
                     try:
                         founder_name_el = founder_el.find_element(By.CSS_SELECTOR, "div.text-xl")
@@ -77,8 +74,11 @@ try:
                         twitter_el = founder_el.find_element(By.CSS_SELECTOR, "a[href*='twitter'], a[href*='x.com']") if founder_el.find_elements(By.CSS_SELECTOR, "a[href*='twitter'], a[href*='x.com']") else None
                         twitter = twitter_el.get_attribute('href') if twitter_el else None
 
+                        github_el = founder_el.find_element(By.CSS_SELECTOR, "a[href*='github'], a[href*='x.com']") if founder_el.find_elements(By.CSS_SELECTOR, "a[href*='github']") else None
+                        github = github_el.get_attribute('href') if github_el else None
+
                         if linkedin or twitter:  # Only add if at least one social link
-                            data.append([company_name, batch, founder_name, linkedin or '', twitter or ''])
+                            data.append([company_name, batch.replace('%20','_'), founder_name, linkedin or '', twitter or '', github or ''])
                             print(f"Added: {company_name} - {founder_name}")
 
                     except Exception as e:
@@ -97,7 +97,7 @@ file_exists = os.path.isfile(file_path)
 with open(file_path, 'a', newline='', encoding='utf-8') as f:
     writer = csv.writer(f)
     if not file_exists:
-        writer.writerow(['Company', 'Batch', 'Founder', 'LinkedIn', 'Twitter'])
+        writer.writerow(['Company', 'Batch', 'Founder_or_company', 'LinkedIn', 'Twitter', 'Github'])
     writer.writerows(data)
 
 print(f"Scraping complete. Data saved to yc_founders_social.csv with {len(data)} entries.")
