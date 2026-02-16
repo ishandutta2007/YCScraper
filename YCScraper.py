@@ -62,11 +62,14 @@ try:
                 company_name = company_url.split("/")[-1]#.replace("_"." ").title()
                 print("company_name=", company_name)
 
-                founder_elements = driver.find_elements(By.CSS_SELECTOR, "div.ycdc-card.profile-card")
-                print(founder_elements)
+                founder_elements = driver.find_elements(By.CSS_SELECTOR, "div.ycdc-card-new")
+                pp.pprint(founder_elements)
 
                 for founder_el in founder_elements:
                     try:
+                        founder_name_el = founder_el.find_element(By.CSS_SELECTOR, "div.text-xl")
+                        founder_name = founder_name_el.text if founder_name_el else None
+
                         linkedin_el = founder_el.find_element(By.CSS_SELECTOR, "a[href*='linkedin']") if founder_el.find_elements(By.CSS_SELECTOR, "a[href*='linkedin']") else None
                         linkedin = linkedin_el.get_attribute('href') if linkedin_el else None
 
@@ -74,7 +77,7 @@ try:
                         twitter = twitter_el.get_attribute('href') if twitter_el else None
 
                         if linkedin or twitter:  # Only add if at least one social link
-                            data.append([company_name, batch, linkedin or '', twitter or ''])
+                            data.append([company_name, batch, founder_name, linkedin or '', twitter or ''])
                             print(f"Added: {company_name} - {founder_name}")
 
                     except Exception as e:
@@ -91,7 +94,7 @@ finally:
 # Save to CSV
 with open('yc_founders_social.csv', 'a', newline='', encoding='utf-8') as f:
     writer = csv.writer(f)
-    writer.writerow(['Company', 'Batch', 'LinkedIn', 'Twitter'])
+    writer.writerow(['Company', 'Batch', 'Founder', 'LinkedIn', 'Twitter'])
     writer.writerows(data)
 
 print(f"Scraping complete. Data saved to yc_founders_social.csv with {len(data)} entries.")
