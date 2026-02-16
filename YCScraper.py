@@ -8,6 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.microsoft import EdgeChromiumDriverManager  # Changed to Edge manager
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 import pprint as pp
+import os
 
 # Setup Edge driver with automatic management
 service = Service(executable_path="C:/edgedriver_win64/msedgedriver.exe")
@@ -91,10 +92,12 @@ try:
 finally:
     driver.quit()
 
-# Save to CSV
-with open('yc_founders_social.csv', 'a', newline='', encoding='utf-8') as f:
+file_path = 'yc_founders_social.csv'
+file_exists = os.path.isfile(file_path)
+with open(file_path, 'a', newline='', encoding='utf-8') as f:
     writer = csv.writer(f)
-    writer.writerow(['Company', 'Batch', 'Founder', 'LinkedIn', 'Twitter'])
+    if not file_exists:
+        writer.writerow(['Company', 'Batch', 'Founder', 'LinkedIn', 'Twitter'])
     writer.writerows(data)
 
 print(f"Scraping complete. Data saved to yc_founders_social.csv with {len(data)} entries.")
