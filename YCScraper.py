@@ -116,7 +116,9 @@ try:
                         github = github_el.get_attribute("href") if github_el else None
 
                         if linkedin or twitter:  # Only add if at least one social link
-                            batch_swapped = "_".join(batch.replace("%20", "_").split('_')[::-1])
+                            batch_swapped = "_".join(
+                                batch.replace("%20", "_").split("_")[::-1]
+                            )
                             data.append(
                                 [
                                     company_name,
@@ -127,7 +129,9 @@ try:
                                     github or "",
                                 ]
                             )
-                            print(f"Added:", company_name, batch.replace("%20", "_"), founder_name, linkedin or "", twitter or "", github or "")
+                            print(
+                                f"Added: {company_name}, {batch.replace('%20', '_')}, {founder_name}, {linkedin or ''}, {twitter or ''}, {github or ''}"
+                            )
                     except Exception as e:
                         print(f"Error extracting founder from {company_url}: {e}")
                         continue
