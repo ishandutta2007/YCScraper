@@ -16,10 +16,10 @@ wait = WebDriverWait(driver, 10)
 
 # Generate possible YC batch codes (S05 to S26, W06 to W26)
 batches = []
-for year in range(5, 27):
-    batches.append(f"S{year:02d}")
+for year in range(2026, 2024, -1):
+    batches.append(f"Summer%20{year:04d}")
     if year >= 6:
-        batches.append(f"W{year:02d}")
+        batches.append(f"Winter%20{year:04d}")
 
 data = []
 base_url = "https://www.ycombinator.com"
@@ -85,7 +85,7 @@ try:
                         twitter = twitter_el.get_attribute('href') if twitter_el else None
 
                         if linkedin or twitter:  # Only add if at least one social link
-                            data.append([company_name, founder_name, linkedin or '', twitter or ''])
+                            data.append([company_name, batch, founder_name, linkedin or '', twitter or ''])
                             print(f"Added: {company_name} - {founder_name}")
 
                     except Exception as e:
@@ -100,9 +100,9 @@ finally:
     driver.quit()
 
 # Save to CSV
-with open('yc_founders_social.csv', 'w', newline='', encoding='utf-8') as f:
+with open('yc_founders_social.csv', 'a', newline='', encoding='utf-8') as f:
     writer = csv.writer(f)
-    writer.writerow(['Company', 'Founder', 'LinkedIn', 'Twitter'])
+    writer.writerow(['Company', 'Batch', 'Founder', 'LinkedIn', 'Twitter'])
     writer.writerows(data)
 
 print(f"Scraping complete. Data saved to yc_founders_social.csv with {len(data)} entries.")
