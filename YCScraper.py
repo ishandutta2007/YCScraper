@@ -9,8 +9,9 @@ from webdriver_manager.microsoft import EdgeChromiumDriverManager  # Changed to 
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 
 # Setup Edge driver with automatic management
-service = Service(EdgeChromiumDriverManager().install())
-driver = webdriver.Edge(service=service)  # Changed to Edge
+service = Service(executable_path="C:/edgedriver_win64/msedgedriver.exe")
+driver = webdriver.Edge(service=service)
+# driver.get("https://www.google.com")
 wait = WebDriverWait(driver, 10)
 
 # Generate possible YC batch codes (S05 to S26, W06 to W26)
