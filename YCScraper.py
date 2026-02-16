@@ -1,20 +1,22 @@
 import csv
 import time
 from selenium import webdriver
-from selenium.webdriver.edge.service import Service  # Changed to Edge
+from selenium.webdriver.edge.service import Service
+from selenium.webdriver.edge.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from webdriver_manager.microsoft import (
-    EdgeChromiumDriverManager,
-)  # Changed to Edge manager
+from webdriver_manager.microsoft import EdgeChromiumDriverManager
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 import pprint as pp
 import os
 
-# Setup Edge driver with automatic management
+edge_options = Options()
+edge_options.add_argument("--headless=new")
 service = Service(executable_path="C:/edgedriver_win64/msedgedriver.exe")
-driver = webdriver.Edge(service=service)
+service = Service()
+
+driver = webdriver.Edge(service=service, options=edge_options)
 wait = WebDriverWait(driver, 10)
 
 # Generate possible YC batch codes (S05 to S26, W06 to W26)
@@ -32,13 +34,13 @@ try:
         print(f"Processing batch: {batch}")
         url = f"{base_url}/companies?batch={batch}"
         driver.get(url)
-        time.sleep(3)
+        time.sleep(1)
 
         # Scroll to load all companies in the batch
         last_height = driver.execute_script("return document.body.scrollHeight")
         while True:
             driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-            time.sleep(2)
+            time.sleep(1)
             new_height = driver.execute_script("return document.body.scrollHeight")
             if new_height == last_height:
                 break
@@ -60,7 +62,7 @@ try:
         for company_url in company_urls:
             try:
                 driver.get(company_url)
-                time.sleep(2)
+                time.sleep(1)
 
                 company_name = company_url.split("/")[-1].replace("-", "_").title()
                 founder_elements = driver.find_elements(
