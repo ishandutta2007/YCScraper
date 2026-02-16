@@ -62,7 +62,7 @@ try:
                 company_name = company_url.split("/")[-1]#.replace("_"." ").title()
                 print("company_name=", company_name)
 
-                founder_elements = driver.find_elements(By.CSS_SELECTOR, "div[contains(@class, 'ycdc-card-new')]")
+                founder_elements = driver.find_elements(By.CSS_SELECTOR, "div.ycdc-card.profile-card")
                 print(founder_elements)
 
                 for founder_el in founder_elements:
