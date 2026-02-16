@@ -40,7 +40,7 @@ def check_swapped_presense(batch):
 
 # Generate possible YC batch codes (S05 to S26, W06 to W26)
 batches = []
-for year in range(2026, 2010, -1):
+for year in range(2026, 2004, -1):
     batch = f"Summer%20{year:04d}"
     if not check_swapped_presense(batch):
         batches.append(batch)
@@ -55,7 +55,7 @@ with open(csv_file_path, "a", newline="", encoding="utf-8") as f:
     writer = csv.writer(f)
     if not file_exists:
         writer.writerow(
-            ["Company", "Batch", "Founder_or_company", "LinkedIn", "Twitter", "Github"]
+            ["Batch", "Company", "Founder_or_company", "LinkedIn", "Twitter", "Github"]
         )
 
 try:
@@ -75,7 +75,6 @@ try:
                 break
             last_height = new_height
 
-        # Find all company links (adjust selector if needed by inspecting the page)
         company_links = driver.find_elements(By.CSS_SELECTOR, "a[href^='/companies/']")
         company_urls = set()  # Use set to avoid duplicates
         for link in company_links:
@@ -151,8 +150,8 @@ try:
                             )
                             data.append(
                                 [
-                                    company_name,
                                     batch_swapped,
+                                    company_name,
                                     founder_name,
                                     linkedin or "",
                                     twitter or "",
@@ -160,7 +159,7 @@ try:
                                 ]
                             )
                             print(
-                                f"Added: {company_name}, {batch_swapped}, {founder_name}, {linkedin or ''}, {twitter or ''}, {github or ''}"
+                                f"Added: {batch_swapped}, {company_name}, {founder_name}, {linkedin or ''}, {twitter or ''}, {github or ''}"
                             )
                     except Exception as e:
                         print(f"Error extracting founder from {company_url}: {e}")
