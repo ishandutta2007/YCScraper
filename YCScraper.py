@@ -25,8 +25,15 @@ for year in range(2026, 2010, -1):
     if year >= 6:
         batches.append(f"Winter%20{year:04d}")
 
-data = []
 base_url = "https://www.ycombinator.com"
+file_path = "yc_founders_social.csv"
+file_exists = os.path.isfile(file_path)
+with open(file_path, "a", newline="", encoding="utf-8") as f:
+    writer = csv.writer(f)
+    if not file_exists:
+        writer.writerow(
+            ["Company", "Batch", "Founder_or_company", "LinkedIn", "Twitter", "Github"]
+        )
 
 try:
     for batch in batches:
@@ -56,7 +63,7 @@ try:
 
         print(f"Found {len(company_urls)} companies in batch {batch}:")
         pp.pprint(company_urls)
-
+        data = []
         for company_url in company_urls:
             try:
                 driver.get(company_url)
@@ -64,7 +71,7 @@ try:
 
                 company_name = company_url.split("/")[-1].replace("-", "_").title()
                 founder_elements = driver.find_elements(
-                    By.CSS_SELECTOR, "div.ycdc-card-new"
+                    By.CSS_SELECTOR, "div.ycdc-card-new, div.ycdc-card"
                 )
                 print(
                     f"company_name={company_name} has {len(founder_elements)} founders"
@@ -130,7 +137,7 @@ try:
                                 ]
                             )
                             print(
-                                f"Added: {company_name}, {batch.replace('%20', '_')}, {founder_name}, {linkedin or ''}, {twitter or ''}, {github or ''}"
+                                f"Added: {company_name}, {batch_swapped}, {founder_name}, {linkedin or ''}, {twitter or ''}, {github or ''}"
                             )
                     except Exception as e:
                         print(f"Error extracting founder from {company_url}: {e}")
@@ -139,19 +146,12 @@ try:
             except Exception as e:
                 print(f"Error processing company {company_url}: {e}")
                 continue
-
+        with open(file_path, "a", newline="", encoding="utf-8") as f:
+            writer = csv.writer(f)
+            writer.writerows(data)
 finally:
     driver.quit()
 
-file_path = "yc_founders_social.csv"
-file_exists = os.path.isfile(file_path)
-with open(file_path, "a", newline="", encoding="utf-8") as f:
-    writer = csv.writer(f)
-    if not file_exists:
-        writer.writerow(
-            ["Company", "Batch", "Founder_or_company", "LinkedIn", "Twitter", "Github"]
-        )
-    writer.writerows(data)
 
 print(
     f"Scraping complete. Data saved to yc_founders_social.csv with {len(data)} entries."
