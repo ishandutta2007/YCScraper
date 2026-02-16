@@ -1,15 +1,15 @@
-import csv
-import time
 from selenium import webdriver
-from selenium.webdriver.edge.service import Service
-from selenium.webdriver.edge.options import Options
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from webdriver_manager.microsoft import EdgeChromiumDriverManager
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
-import pprint as pp
+from selenium.webdriver.common.by import By
+from selenium.webdriver.edge.options import Options
+from selenium.webdriver.edge.service import Service
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+from webdriver_manager.microsoft import EdgeChromiumDriverManager
+import csv
 import os
+import pprint as pp
+import time
 
 edge_options = Options()
 edge_options.add_argument("--headless=new")
@@ -18,17 +18,40 @@ service = Service(executable_path="C:/edgedriver_win64/msedgedriver.exe")
 driver = webdriver.Edge(service=service, options=edge_options)
 wait = WebDriverWait(driver, 10)
 
+cwd = os.getcwd()
+print("Current Working Directory:", cwd)
+csv_file_path = os.path.join(cwd, "yc_founders_social.csv")
+print("csv_file_path:", csv_file_path)
+
+
+def is_string_in_csv(search_string):
+    with open(csv_file_path, mode="r", newline="", encoding="utf-8") as f:
+        reader = csv.reader(f)
+        for row in reader:
+            if any(search_string in field for field in row):
+                return True
+    return False
+
+
+def check_swapped_presense(batch):
+    batch_swapped = "_".join(batch.replace("%20", "_").split("_")[::-1])
+    return is_string_in_csv(batch_swapped)
+
+
 # Generate possible YC batch codes (S05 to S26, W06 to W26)
 batches = []
 for year in range(2026, 2010, -1):
-    batches.append(f"Summer%20{year:04d}")
-    if year >= 6:
-        batches.append(f"Winter%20{year:04d}")
+    batch = f"Summer%20{year:04d}"
+    if not check_swapped_presense(batch):
+        batches.append(batch)
+    if year >= 2006:
+        batch = f"Winter%20{year:04d}"
+        if not check_swapped_presense(batch):
+            batches.append(batch)
 
 base_url = "https://www.ycombinator.com"
-file_path = "yc_founders_social.csv"
-file_exists = os.path.isfile(file_path)
-with open(file_path, "a", newline="", encoding="utf-8") as f:
+file_exists = os.path.isfile(csv_file_path)
+with open(csv_file_path, "a", newline="", encoding="utf-8") as f:
     writer = csv.writer(f)
     if not file_exists:
         writer.writerow(
@@ -146,7 +169,7 @@ try:
             except Exception as e:
                 print(f"Error processing company {company_url}: {e}")
                 continue
-        with open(file_path, "a", newline="", encoding="utf-8") as f:
+        with open(csv_file_path, "a", newline="", encoding="utf-8") as f:
             writer = csv.writer(f)
             writer.writerows(data)
 finally:
