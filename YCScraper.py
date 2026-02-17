@@ -12,7 +12,7 @@ import pprint as pp
 import time
 
 edge_options = Options()
-edge_options.add_argument("--headless=new")
+# edge_options.add_argument("--headless=new")
 service = Service(executable_path="C:/edgedriver_win64/msedgedriver.exe")
 
 driver = webdriver.Edge(service=service, options=edge_options)
