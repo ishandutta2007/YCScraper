@@ -11,16 +11,99 @@ import csv
 import os
 import time
 
+output_csv_path = "500global_portfolio.csv"
 
-def scrape_500global_portfolio():
-    url = "https://500.co/portfolio"
-    output_csv_path = "500global_portfolio.csv"
+edge_options = EdgeOptions()
+# edge_options.add_argument("--headless=new")
+edge_options.add_argument("--disable-dev-shm-usage")
+service = EdgeService(executable_path="C:/edgedriver_win64/msedgedriver.exe")
 
-    edge_options = EdgeOptions()
-    # edge_options.add_argument("--headless=new")
-    edge_options.add_argument("--disable-dev-shm-usage")
-    service = EdgeService(executable_path="C:/edgedriver_win64/msedgedriver.exe")
+batches = [
+    "Distro 1",
+    "Dojo I",
+    "Dojo II",
+    "Dojo III",
+    "Egypt Scale Up1",
+    "Eurasia 7",
+    "Eurasia 8",
+    "Eurasia 9",
+    "GA 10",
+    "GA 11",
+    "GA 12",
+    "GA 13",
+    "GA 14",
+    "GA 15",
+    "GA 16",
+    "GA 17",
+    "GA 18",
+    "GA 19",
+    "GA 1",
+    "GA 20",
+    "GA 21",
+    "GA 22",
+    "GA 23",
+    "GA 24",
+    "GA 25",
+    "GA 26",
+    "GA 27",
+    "GA 28",
+    "GA 29",
+    "GA 2",
+    "GA 30",
+    "GA 32",
+    "GA 33",
+    "GA 34",
+    "GA 35",
+    "GA 3",
+    "GA 4",
+    "GA 5",
+    "GA 6",
+    "GA 7",
+    "GA 8",
+    "GA 9",
+    "Georgia 3",
+    "Georgia 4",
+    "Georgia 5",
+    "Georgia 6",
+    "Georgia 7",
+    "Lucha - NONE",
+    "Lucha 10",
+    "Lucha 11",
+    "Lucha 12",
+    "Lucha 14",
+    "Lucha 15",
+    "Lucha 18",
+    "Lucha 1",
+    "Lucha 2",
+    "Lucha 3",
+    "Lucha 4",
+    "Lucha 5",
+    "Lucha 6",
+    "Lucha 7",
+    "Lucha 8",
+    "Lucha 9",
+    "MENA 10",
+    "Mena 1",
+    "Mena 2",
+    "Mena 4",
+    "MENA 5",
+    "MENA 6",
+    "MENA 7",
+    "MENA 8",
+    "MENA 9",
+    "Misk 1",
+    "Misk 2",
+    "Misk 3",
+    "Saola",
+    "SF 36",
+]
 
+
+def is_positive_integer(s):
+    return s.isdigit()
+
+
+def launch_page(batch, pageno, maxpageno):
     try:
         driver = webdriver.Edge(service=service, options=edge_options)
     except Exception as e:
@@ -32,53 +115,68 @@ def scrape_500global_portfolio():
 
     wait = WebDriverWait(driver, 20)  # Increased wait time
 
+    url = f"https://500.co/portfolio?batch={batch}&page={pageno}"
+    driver.get(url)
     print(f"Navigating to {url}...")
-    try:
-        driver.get(url)
-        wait.until(
-            EC.presence_of_element_located(
-                (By.XPATH, "//h2[text()='Portfolio Companies']")
-            )
+    wait.until(
+        EC.presence_of_element_located((By.XPATH, "//h2[text()='Portfolio Companies']"))
+    )
+    print("Page loaded. Waiting for company cards to appear...")
+
+    last_height = driver.execute_script("return document.body.scrollHeight")
+    while True:
+        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        time.sleep(3)
+        new_height = driver.execute_script("return document.body.scrollHeight")
+        if new_height == last_height:
+            break
+        last_height = new_height
+
+    company_card_selector = "//div[contains(@class, 'flex p-4 flex-col-reverse') and contains(@class, 'bg-white') and contains(@class, 'rounded-[7px]') and contains(@class, 'border')]"
+    wait.until(EC.presence_of_all_elements_located((By.XPATH, company_card_selector)))
+    company_cards = driver.find_elements(By.XPATH, company_card_selector)
+    print("No of card_elements:", len(company_cards))
+
+    if not company_cards:
+        print(
+            "No company cards found after dynamic load. Check selectors and page structure."
         )
-        print("Page loaded. Waiting for company cards to appear...")
-
-        last_height = driver.execute_script("return document.body.scrollHeight")
-        while True:
-            driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-            time.sleep(3)  # Give some time for new content to load
-            new_height = driver.execute_script("return document.body.scrollHeight")
-            if new_height == last_height:
-                break
-            last_height = new_height
-
-        company_card_selector = "//div[contains(@class, 'flex p-4 flex-col-reverse') and contains(@class, 'bg-white') and contains(@class, 'rounded-[7px]') and contains(@class, 'border')]"
+        driver.quit()
+        return
+    if pageno == 1:
+        print("Waiting for page footer to appear...")
+        page_footer_selector = "nav > ul > li > a"
         wait.until(
-            EC.presence_of_all_elements_located((By.XPATH, company_card_selector))
+            EC.presence_of_all_elements_located((By.CSS_SELECTOR, page_footer_selector))
         )
-        company_cards = driver.find_elements(By.XPATH, company_card_selector)
-        print("No of card_elements:", len(company_cards))
+        print("Pages:")
+        page_no_elems = driver.find_elements(By.CSS_SELECTOR, page_footer_selector)
+        page_nos = []
+        for page_no_elem in page_no_elems:
+            page_nos.append(page_no_elem.text)
+            if is_positive_integer(page_no_elem.text):
+                maxpageno = max(maxpageno, int(page_no_elem.text))
+        print("page_nos", page_nos)
+        print("maxpageno", maxpageno)
 
-        if not company_cards:
-            print(
-                "No company cards found after dynamic load. Check selectors and page structure."
-            )
-            driver.quit()
-            return
+    print(f"Found {len(company_cards)} company cards on {url}.")
+    return company_cards, maxpageno
 
-        print(f"Found {len(company_cards)} company cards.")
 
+def scrape_500global_portfolio(batch):
+    pageno = 1
+    maxpageno = 1
+    while pageno <= maxpageno:
+        company_cards, maxpageno = launch_page(batch, pageno, maxpageno)
         scraped_data = []
-        scraped_data.append(["Company Name", "Website", "LinkedIn"])  # Header row
+        scraped_data.append(["CompanyName", "Website", "LinkedIn"])
 
-        for i, card_element in enumerate(
-            company_cards
-        ):  # Renamed to card_element to avoid confusion with BeautifulSoup object
+        for i, card_element in enumerate(company_cards):
             company_name = "N/A"
             website_link = "N/A"
             linkedin_link = "N/A"
 
             try:
-                # Parse the outerHTML of the WebElement with BeautifulSoup
                 card_soup = BeautifulSoup(
                     card_element.get_attribute("outerHTML"), "html.parser"
                 )
@@ -136,17 +234,18 @@ def scrape_500global_portfolio():
 
             scraped_data.append([company_name, website_link, linkedin_link])
 
-    finally:
-        driver.quit()
+        try:
+            with open(output_csv_path, "w", newline="", encoding="utf-8") as csvfile:
+                csv_writer = csv.writer(csvfile)
+                csv_writer.writerows(scraped_data)
+            print(f"Scraping complete. Data saved to {output_csv_path}")
+        except IOError as e:
+            print(f"Error writing to CSV file: {e}")
 
-    try:
-        with open(output_csv_path, "w", newline="", encoding="utf-8") as csvfile:
-            csv_writer = csv.writer(csvfile)
-            csv_writer.writerows(scraped_data)
-        print(f"Scraping complete. Data saved to {output_csv_path}")
-    except IOError as e:
-        print(f"Error writing to CSV file: {e}")
+        pageno += 1
+        time.sleep(5)
 
 
 if __name__ == "__main__":
-    scrape_500global_portfolio()
+    for batch in batches:
+        scrape_500global_portfolio(batch.replace(" ", "%20"))
