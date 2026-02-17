@@ -118,7 +118,7 @@ def is_positive_integer(s):
 
 
 def launch_page(driver, batch, pageno, maxpageno):
-    wait = WebDriverWait(driver, 20)
+    wait = WebDriverWait(driver, 40)
     company_cards = []  # Initialize to handle exceptions gracefully
 
     try:
