@@ -296,6 +296,14 @@ def is_string_in_csv(search_string):
 
 def count_string_in_list(all_data, target="N/A"):
     total_count = sum(sublist.count(target) for sublist in all_data)
+    print(
+        "count_string_in_list:",
+        "rows=>",
+        len(all_data),
+        "tot=>",
+        total_count,
+        all_data[0][0],
+    )
     return total_count
 
 
