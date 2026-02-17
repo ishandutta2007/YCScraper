@@ -1,38 +1,26 @@
+from bs4 import BeautifulSoup
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
-
-# from selenium.webdriver.chrome.options import Options as ChromeOptions # Assuming Chrome, but can be Edge
-from selenium.webdriver.edge.options import Options as EdgeOptions  # Uncomment for Edge
-from selenium.webdriver.edge.service import Service as EdgeService  # Uncomment for Edge
-
-# from webdriver_manager.chrome import ChromeDriverManager # Assuming Chrome
-from webdriver_manager.microsoft import EdgeChromiumDriverManager  # Uncomment for Edge
-
+from selenium.webdriver.common.by import By
+from selenium.webdriver.edge.options import Options as EdgeOptions
+from selenium.webdriver.edge.service import Service as EdgeService
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+from webdriver_manager.microsoft import EdgeChromiumDriverManager
 import csv
 import os
 import time
-from bs4 import BeautifulSoup  # Import BeautifulSoup
 
 
 def scrape_500global_portfolio():
     url = "https://500.co/portfolio"
     output_csv_path = "500global_portfolio.csv"
 
-    # Set up Edge options for headless browsing
     edge_options = EdgeOptions()
     # edge_options.add_argument("--headless=new")
     edge_options.add_argument("--disable-dev-shm-usage")
     service = EdgeService(executable_path="C:/edgedriver_win64/msedgedriver.exe")
 
-    # You might need to specify the executable path if webdriver_manager has issues
-    # service = ChromeService(executable_path=ChromeDriverManager().install()) # For Chrome
-    # driver = webdriver.Chrome(service=service, options=chrome_options)
-
-    # For simplicity, using directly without explicit service in some versions,
-    # or rely on webdriver_manager to download and manage.
     try:
         driver = webdriver.Edge(service=service, options=edge_options)
     except Exception as e:
@@ -47,7 +35,6 @@ def scrape_500global_portfolio():
     print(f"Navigating to {url}...")
     try:
         driver.get(url)
-        # Wait for the main content to load. The "Portfolio Companies" heading seems reliable.
         wait.until(
             EC.presence_of_element_located(
                 (By.XPATH, "//h2[text()='Portfolio Companies']")
@@ -55,13 +42,6 @@ def scrape_500global_portfolio():
         )
         print("Page loaded. Waiting for company cards to appear...")
 
-        # A more general selector for company cards based on the structure observed.
-        # We need to wait for at least one company card to be present.
-        # The class names are dynamically generated in some parts, but the overall structure (div with certain classes) might be stable.
-        # I'll use a portion of the class names that seem common.
-        # Let's try waiting for an element that contains "flex p-4 flex-col-reverse"
-
-        # Scroll to load all companies in the batch
         last_height = driver.execute_script("return document.body.scrollHeight")
         while True:
             driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
@@ -71,10 +51,6 @@ def scrape_500global_portfolio():
                 break
             last_height = new_height
 
-        # Now try to find the company cards after scrolling
-        # The full class string is:
-        # "w-full flex p-4 flex-col-reverse md:flex-row lg:p-6 my-2 gap-3 lg:gap-0 bg-white rounded-[7px] border border-neutral-200 items-center justify-between"
-        # We need to escape colons and spaces for CSS_SELECTOR or use XPATH. XPATH is probably safer for complex classes.
         company_card_selector = "//div[contains(@class, 'flex p-4 flex-col-reverse') and contains(@class, 'bg-white') and contains(@class, 'rounded-[7px]') and contains(@class, 'border')]"
         wait.until(
             EC.presence_of_all_elements_located((By.XPATH, company_card_selector))
@@ -134,8 +110,6 @@ def scrape_500global_portfolio():
                         company_name = name_link.get_text(strip=True)
                         website_link = name_link["href"]
 
-                # Find Website Link:
-                # If website_link wasn't set by the name_link, try to find another relevant link
                 if website_link == "N/A":
                     # Look for any <a> tag within the card that has an http/https href
                     # and is not LinkedIn, Twitter, or an internal /companies/ link.
@@ -151,7 +125,6 @@ def scrape_500global_portfolio():
                             website_link = href
                             break  # Assume the first valid external link is the main website
 
-                # Find LinkedIn Link:
                 linkedin_link_element = card_soup.find(
                     "a", href=lambda href: href and "linkedin.com" in href
                 )
