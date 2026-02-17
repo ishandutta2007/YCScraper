@@ -1,4 +1,722 @@
-Batch,Pageno,Company_Name,Website,LinkedIn
++Batch,Pageno,Company_Name,Website,LinkedIn
+,1,15five,http://www.15five.com,N/A
+,1,1huddle,http://1huddle.co,https://www.linkedin.com/company/1huddle-inc/
+,1,21 Market,http://www.21market.kr,N/A
+,1,3D Look,http://3dlook.me,N/A
+,1,410 Labs,http://410labs.com,N/A
+,1,42,http://www.42technologies.com,N/A
+,1,8sec,http://8sec.games,N/A
+,1,99 Minutos,http://99minutos.com,N/A
+,1,99.co,http://www.99.co,N/A
+,100,Nebu,http://www.thenebu.com,N/A
+,100,Nebutech,N/A,N/A
+,100,Neo Money,http://www.neomoney.com,N/A
+,100,Nestrom,http://www.nestrom.com,https://www.linkedin.com/company/nestrom
+,104,"Oblix, Inc",http://oblixsecurity.com,https://www.linkedin.com/in/mahlertom/
+,104,Nugit,http://www.nugit.co,N/A
+,104,NXTPLabs,http://www.nxtplabs.com,N/A
+,104,Oasis Labs,http://www.oasislabs.com,N/A
+,105,Oen,http://www.oen.tw,N/A
+,105,Offi,http://www.getoffi.com,N/A
+,105,Office Luv,http://officeluv.com,N/A
+,105,Ohalo,http://www.ohalo.co,N/A
+,105,Ohmysynt,http://ohmysynt.io,https://www.linkedin.com/company/91566766/admin/feed/posts/
+,105,Olist,http://olist.com,N/A
+,108,Orderly Health,http://orderlyhealth.com,N/A
+,108,Ordoro,http://www.ordoro.com,N/A
+,108,Origin,http://www.useorigin.com,N/A
+,108,Orori,http://www.orori.com,N/A
+,108,Osly,http://pocketflow.ai,N/A
+,108,OSYVA,http://www.osyva.com,https://co.linkedin.com/company/osyva-inc
+,108,Oto Capital,http://www.otocapital.in,N/A
+,108,Otter,http://otter.ai,https://www.linkedin.com/company/otter-ai
+,108,Ottimate,http://ottimate.com,https://linkedin.com/company/plateiq
+,109,Ottimate,http://www.plateiq.com,https://www.linkedin.com/company/paro-ai
+,109,Oumla Ltd,http://www.oumla.com,N/A
+,109,Owlr,http://owlr.com,N/A
+,109,Oxygen,http://oxygen.us,https://www.linkedin.com/company/oxygenbanking/
+,109,Pacto,http://www.pacto.co,N/A
+,109,Pandai,http://pandai.org,https://www.linkedin.com/company/pandai/
+,110,Pandorum Technologies,http://pandorum.com,https://www.linkedin.com/company/pandorumtechnologies
+,110,Panoply,http://panoply.io,N/A
+,110,Pantry,http://pantryretail.com,N/A
+,110,Parcel Perform,http://www.parcelperform.com,N/A
+,110,Parting,http://www.parting.com,N/A
+,110,Partyphile,http://partyphile.com,N/A
+,117,Port of Mokha,http://portofmokha.com,N/A
+,117,Pose,http://pose.vn,N/A
+,117,Postex,http://www.postex.pk,https://linkedin.com/company/postex-pk
+,117,Praktika.ai Company,http://www.praktika.ai,N/A
+,117,Pravica,http://pravica.io,https://www.linkedin.com/company/pravicasuite
+,117,Precursor Ventures,N/A,N/A
+,118,Prefer,http://prefer.bio,https://www.linkedin.com/company/prefercoffee
+,118,Presto,http://presto.com,N/A
+,118,Prevenotics,http://prevenotics.com,https://www.linkedin.com/company/prevenotics
+,118,Prezent,http://www.prezent.ai,N/A
+,118,PRIMIS,https://primis.cx/,N/A
+,119,"PROMPT DRIVEN, INC.",https://promptdriven.ai/,N/A
+,119,Produce Pay,http://producepay.com,N/A
+,119,PROFE SOCIAL,http://profe.social,https://www.linkedin.com/company/profe-social/
+,119,Proglix,http://proglix.com,https://www.linkedin.com/company/proglixindonesia/
+,119,Project A,N/A,https://linkedin.com/in/thomas-jacobson-0675b220
+,119,Project65,N/A,N/A
+,119,Promenade AI,http://www.promenade.ai,N/A
+,119,Propagate,http://www.propagatebrands.com,https://linkedin.com/company/propagate-brands
+,119,Propeller,http://www.propelleraero.com,N/A
+,120,Proteinea,http://www.proteinea.com,https://www.linkedin.com/company/proteinea
+,120,Prynt,http://www.pryntcases.com,N/A
+,120,Public Goods,http://www.publicgoods.com,N/A
+,120,Publy,http://publy.co,N/A
+,120,Purely B,http://www.purelyb.com,N/A
+,120,Pushtech,http://www.pushtech.com,N/A
+,121,Pyme,http://pyme.id,https://www.linkedin.com/company/pyme-team/about/
+,121,Qarbotech,http://qarbotech.com,https://www.linkedin.com/company/qarbotech/
+,121,Qashio,http://qashio.com,https://www.linkedin.com/company/qashio/
+,121,Qentaz,http://www.qentaz.com,https://www.linkedin.com/company/qentaz
+,121,Qerja,http://qerjagroup.com,N/A
+,121,QiDZ Holding,http://qidz.com,https://www.linkedin.com/company/qidz
+,122,"QUILL NOTES, INC.",N/A,N/A
+,122,Qraved,http://www.qraved.com,N/A
+,122,Quantum,http://www.quantums.com.sa,https://www.linkedin.com/company/quantumplatform
+,122,Quero Educaçăo,http://sobre.quero.com,N/A
+,122,Queroquitar,http://www.queroquitar.com.br,N/A
+,122,Quickshipper,http://qshpr.com,https://www.linkedin.com/company/quickshipper/
+,122,Quiks Frozen,http://www.quiks.co.id,N/A
+,123,Rachio,http://rachio.com,N/A
+,123,Rain Financial,http://www.rain.com,https://www.linkedin.com/company/rain
+,123,Raised,https://joinraised.com/,https://www.linkedin.com/company/raisednetworks
+,124,RareLee,http://rarelee.co.kr,N/A
+,124,Raseedi,http://www.raseediapp.com,https://www.linkedin.com/company/raseedi-app
+,124,Raven Risk,http://www.ravenrisk.ai,N/A
+,124,Raw Apothecary,http://rawapothecary.mx,N/A
+,124,Rawsome Pte. Ltd.,http://wildboocha.com,N/A
+,124,Reality Reflection,http://realityreflection.com,N/A
+,125,"Recursal AI, Inc.",http://recursal.ai,N/A
+,125,Reclub,N/A,N/A
+,125,Red Tricycle,http://redtri.com,N/A
+,125,Reddit,http://www.redditinc.com,N/A
+,125,Reddoorz,http://www.reddoorz.com,https://www.linkedin.com/company/reddoorz
+,125,Reliv,http://www.reliv.la,N/A
+,126,"Replkt, Inc.",http://playabl.ai,https://www.linkedin.com/company/stealth-startup-community/posts/?feedView=all
+,126,Renotag,http://www.renotag.com,https://www.linkedin.com/company/renotag
+,126,Replyr,http://replyr.ai,N/A
+,126,Reserveout,http://reserveout.com,N/A
+,126,Resonado Labs,http://www.resonado.com,N/A
+,126,Resulticks,http://interakt.co,N/A
+,126,Retailo,http://retailo.co,N/A
+,127,Revie,http://revie.lat,https://www.linkedin.com/company/revieio/
+,127,Revolution Precrafted,http://revolutionprecrafted.com,N/A
+,127,Rework,http://rework.id,N/A
+,127,Ringkas,http://ringkas.co.id,https://www.linkedin.com/company/ringkas/
+,127,Ripplehire,http://www.ripplehire.com,N/A
+,128,Ripple Labs,http://www.ripple.com,N/A
+,128,Rooster,http://www.plympton.com,N/A
+,128,Rovilus,http://www.rovilus.com,N/A
+,128,Ruedata,http://ruedata.com,N/A
+,128,Ruka.ai,http://www.ruka.ai,https://www.linkedin.com/company/rukaai
+,128,Rumarocket,http://rumarocket.com,N/A
+,129,RunRun.it,http://www.runrun.it,N/A
+,129,Runway Financial,http://runway.com,N/A
+,129,Ruut,http://ruut.mx,N/A
+,129,RVDS,http://www.rvds.kr,N/A
+,129,Saberstack Inc,N/A,N/A
+,129,Safqah Holdings Limited,http://safqah.co,N/A
+,130,SAIB,http://www.saibnco.com,https://www.linkedin.com/company/saib-co
+,130,Sakana AI,http://sakana.ai,https://linkedin.com/company/sakana-ai
+,130,SALARY HERO PTE.,http://salary-hero.com,N/A
+,130,Salasa,http://salasa.co,https://www.linkedin.com/company/salasa
+,130,Samu,https://samu.ai/,N/A
+,130,Sandhill Markets,http://sandhillmarkets.com,N/A
+,130,Sankun,http://sankun.com,N/A
+,132,Scopio,http://scop.io,N/A
+,132,Scoredata,http://scoredata.com,N/A
+,132,Screencloud,http://screencloud.com,N/A
+,132,Seamorny,N/A,N/A
+,132,Second Nature,http://www.secondnature.io,https://www.linkedin.com/company/besecondnature/
+,132,Seedflex,http://www.seedflex.com,N/A
+,132,Seeloz,http://www.seeloz.com,https://www.linkedin.com/company/seeloz-inc-
+,133,Send4 Tecnologia,http://www.send4.com.br,https://www.linkedin.com/company/aftersale-br/
+,133,Sentry,http://sentry.io,N/A
+,133,Seppure,http://seppure.com,N/A
+,133,Seventh Sense,http://www.seventhsense.ai,N/A
+,133,Shardsecure,http://shardsecure.com,N/A
+,134,Shearshare,http://www.shearshare.com,N/A
+,134,Sheroes,http://sheroes.com,N/A
+,134,Shippio,http://www.shippio.io,https://www.linkedin.com/company/shippioinc
+,134,Shippo,http://goshippo.com,N/A
+,134,Shiprocket,http://www.shiprocket.in,N/A
+,137,Simpatico Project,http://www.clify.co.kr,N/A
+,137,SimpleHoney,http://iwanthoney.com,N/A
+,137,Simplex,http://simplexarabia.com,https://www.linkedin.com/company/simplex-cnc
+,137,Siolla,http://siolla.com,N/A
+,138,Skinseoul Lab,http://www.skin-seoul.com,N/A
+,138,Sleek EV,http://www.sleekev.com,https://www.linkedin.com/company/sleek-ev
+,138,Sleepbox,http://sleepbox.com,N/A
+,138,Smart Crowd,http://smartcrowd.ae,https://www.linkedin.com/company/smart-crowd-property
+,138,Smarthr,http://smarthr.co.jp,N/A
+,14,Ayannah,http://www.ayannah.com,N/A
+,14,Baania,http://www.baania.com,N/A
+,14,Babylist,http://www.babylist.com,N/A
+,14,BALAD CORP,http://balad.me,N/A
+,14,Balloon,http://getballoon.com,N/A
+,14,BANIQL,http://baniql.com,https://www.linkedin.com/company/baniql/?viewAsMember=true
+,143,Startups.com,http://www.startups.com,N/A
+,143,Steel Bot,N/A,N/A
+,143,Stellapps,http://www.stellapps.com,https://www.linkedin.com/company/stellapps-technologies-private-limited
+,143,Stethy,http://stethy.co,https://www.linkedin.com/company/stethy/
+,143,Stitch,http://stitch.money,N/A
+,143,Stllr Network,http://www.stllr.network,N/A
+,143,Stock Radars,http://stockradars.co,N/A
+,143,Stockbit,http://stockbit.com,N/A
+,143,Storehub,http://www.storehub.com,N/A
+,147,SwipeRX,http://www.swiperxapp.com,N/A
+,147,Syncly,http://syncly.app,https://www.linkedin.com/company/synclyyc
+,147,Synervoz,http://synervoz.com,N/A
+,147,Synthesia,http://synthesia.club,N/A
+,147,T2P Company,http://www.t2pco.com,N/A
+,147,Talently,http://talently.tech,N/A
+,148,Tales,http://talescreator.com,N/A
+,148,Talkdesk,http://www.talkdesk.com,https://www.linkedin.com/company/talkdesk
+,148,Tamatem,http://tamatem.co,https://www.linkedin.com/company/tamatem-inc-/
+,148,Taming Lab,N/A,N/A
+,148,Taphomes,http://taphomes.co.id,N/A
+,149,Task Master AI / Hamster,N/A,N/A
+,149,Taskty,http://taskty.com,https://www.linkedin.com/company/taskty
+,149,Tass Vision,http://tassvision.ai,N/A
+,149,Taxo,http://taxo.co,https://www.linkedin.com/company/taxoapp/
+,150,Techmate,http://www.techmate.com,N/A
+,150,TEDI,http://tedivirtual.com,https://www.linkedin.com/company/tedi-peru/
+,150,Tees,http://tees.co.id,N/A
+,150,Terapify,http://www.terapify.com,N/A
+,150,Terminal 3,http://www.terminal3.io,https://linkedin.com/company/terminal3io
+,150,Text'n Pay Me,http://textnpayme.com,https://www.linkedin.com/company/text-pay-me/
+,150,Textla,http://www.textla.com,https://www.linkedin.com/company/textla-com/
+,151,TG3D Studio,http://www.tg3ds.com,https://www.linkedin.com/company/tg3dstudio/
+,151,The Clozet Company,http://closetshare.com,N/A
+,151,Thenoor,http://thenoor.co,https://www.linkedin.com/company/thenoor
+,151,Theres Camping,http://www.theres.co,N/A
+,151,Thinglink,http://www.thinglink.com,N/A
+,152,Thread Solutions Inc.,"http://251 Little Falls Drive, Wilmington, New Castle County, Delaware 19808",N/A
+,152,Thrive AI Co.,N/A,N/A
+,152,Ticketrev,http://www.ticketrev.com,N/A
+,152,Tiger New Energy,http://tigernewenergy.com,https://www.linkedin.com/company/tiger-new-energy-co-ltd
+,152,TimeBlocks,http://day2life.com,N/A
+,152,TNL Media,http://www.tnlmedia.com,N/A
+,152,Tome,http://beta.tome.app,https://www.linkedin.com/company/magical-tome
+,153,TouchPoints,https://www.touchpoints.cx/,https://www.linkedin.com/company/videopointai
+,153,Touchten,http://www.touchten.com,N/A
+,153,Touramigo,http://touramigo.com,https://www.linkedin.com/company/tour-amigo
+,153,Tourhero,http://www.tourhero.com,N/A
+,153,ToyTalk,http://www.pullstring.com,N/A
+,153,TradeHero,http://en.tradehero.mobi,N/A
+,154,Tradespace,http://www.tradespace.io,N/A
+,154,Transcelestial,http://transcelestial.com,N/A
+,154,Travelio,http://www.travelio.com,https://www.linkedin.com/company/travelio-com/
+,154,Traveljoy,http://traveljoy.com,N/A
+,154,Trend,http://www.trend.io,N/A
+,154,Tripitaca,http://www.tripitaca.com,https://www.linkedin.com/company/tripitaca/
+,155,Trocafone,http://www.trocafone.com.br,N/A
+,155,Trubrain,http://www.trubrain.com,N/A
+,155,Trucks Venture Fund I,http://www.trucks.vc,N/A
+,155,Truelli,http://www.truelli.com,https://www.linkedin.com/company/truelliglobal/
+,155,Trukker,http://trukker.com,https://www.linkedin.com/company/trukkertech
+,155,Truktop,http://www.truktop.com,https://www.linkedin.com/company/truktop/
+,155,TrustAnchor,N/A,https://www.linkedin.com/in/pankajdubey84/
+,155,Trustdock,http://biz.trustdock.io,N/A
+,156,Trusted Insight,http://www.thetrustedinsight.com,N/A
+,156,Trusting Social,http://trustingsocial.com,N/A
+,156,Ttracing,http://ttracing.my,https://linkedin.com/company/ttracing
+,156,Tunable Biosystems,N/A,https://www.linkedin.com/company/tunable-biosystems-inc/
+,156,Twilio,http://twilio.com,N/A
+,156,Ubuntu Tribe,http://utribe.one,https://www.linkedin.com/company/utribeone
+,157,Ulu Ventures,http://www.uluventures.com,N/A
+,157,Umbala,http://umbala.tv,N/A
+,157,Umoja,http://www.umoja.xyz,https://www.linkedin.com/company/umoja-labs/
+,157,Una Brands,http://www.una-brands.com,https://www.linkedin.com/company/una-brands
+,157,UNest,http://unest.co,N/A
+,157,UniSub,http://unisub.io,https://www.linkedin.com/company/89620036/
+,157,Unito,http://unito.io,N/A
+,157,Unshackled Ventures I,http://www.unshackledvc.com,N/A
+,160,Verifi Media,http://www.verifi.media,N/A
+,160,Verisoul,http://www.verisoul.xyz,https://linkedin.com/company/verisoul-stops-fake-users/
+,160,Verofax,http://verofax.com,https://www.linkedin.com/company/verofax-limited
+,160,Vertical Bar,https://www.vertical.bar/,https://www.linkedin.com/company/verticalbar/
+,160,Vida,http://vidaworld.com.my,N/A
+,162,&Volume,https://nvolume.com/en/index.html,https://uk.linkedin.com/company/nvolume
+,162,Volt,https://www.voltchat.com/,https://www.linkedin.com/company/calendico
+,162,Volt14,http://volt14.com,N/A
+,162,Vonder,http://www.vonder.co.th,N/A
+,162,Vonjour,http://vonjour.com,https://www.linkedin.com/company/vonjour/
+,162,Vouch,http://www.vouch.us,N/A
+,162,VoyceMe,http://www.voyce.me,https://www.linkedin.com/company/voyceme?trk=public_profile_topcard-current-company
+,163,Vts,http://www.vts.com,N/A
+,163,Vuz,http://vuz.com,https://www.linkedin.com/company/360vuz
+,163,Wanderu,http://www.wanderu.com,N/A
+,163,WaveAI,http://www.wave-ai.net,N/A
+,163,Wedgies,http://wedgies.com,N/A
+,163,Wegowhere,http://wegowhere.com,https://linkedin.com/company/wegowhere
+,163,WeGrow asia CO.,http://www.wegrow.asia,https://www.linkedin.com/company/wegrow-asia/
+,163,Weibook,http://weibook.us,https://www.linkedin.com/company/weibook-co
+,164,WeTheTrillions,http://www.wethetrillions.com,https://www.linkedin.com/company/wethetrillions
+,164,Wetravel,http://www.wetravel.com,N/A
+,164,Wevorce,http://www.wevorce.com,https://www.linkedin.com/company/wevorce/about/
+,164,Whelp,http://whelp.co,https://www.linkedin.com/company/whelp
+,164,WholeShare,http://wholeshare.com,N/A
+,164,Wifkain,http://www.wifkain.com,https://www.linkedin.com/company/wifworld/
+,165,WinCL,http://www.wincl.io,https://kr.linkedin.com/company/wincl-inc
+,165,WiseCricket,https://www.wisecricket.ai,https://www.linkedin.com/company/wisecricket
+,165,Wishup,http://www.wishup.co,N/A
+,165,Wited,http://www.wited.com,N/A
+,165,Wizer.me,http://app.wizer.me,N/A
+,165,Wonderschool,http://www.wonderschool.com,N/A
+,166,"XeroSec, Inc.",N/A,N/A
+,166,Worq,http://worq.space,N/A
+,166,Xfers,http://www.xfers.com,N/A
+,166,Xing Mobility,http://www.xingmobility.com,N/A
+,167,Xtgem,http://xtgem.com,N/A
+,167,Yabi,http://yabimoney.com,https://www.linkedin.com/company/yabimoney
+,167,Yana,http://www.yana.ai,N/A
+,168,Yourpay,http://yourpay.co,https://www.linkedin.com/company/yourpayindonesia/
+,168,Yumi,http://helloyumi.com,N/A
+,168,Zappli,http://www.zappli.com,N/A
+,168,Zayn Network,http://zayn.fi,N/A
+,168,Zeabur,http://zeabur.com,N/A
+,168,Zebec Network,http://zebec.io,https://linkedin.com/company/zebec-protocol/
+,168,Zeemi.tv,http://zeemi.tv,N/A
+,169,Zehitomo,http://www.zehitomo.com,https://www.linkedin.com/company/zehitomo
+,169,ZenAdmin,http://www.zenadmin.ai,N/A
+,169,Zengaming,http://www.zengaming.com,N/A
+,169,ZenHR,http://www.zenhr.com,N/A
+,169,Zenjob,http://www.zenjob.com,N/A
+,169,Zenysis,http://www.zenysis.com,N/A
+,169,Zest Equity,http://zestequity.com,https://www.linkedin.com/company/zest-equity/
+,169,Ziro Holdings,http://somosziro.com,https://www.linkedin.com/company/somosziro/
+,170,EXA,http://sabr.io,N/A
+,170,Flowtown,http://flowtown.com,N/A
+,170,Modus,http://www.modusclosing.com,N/A
+,170,RestAR,http://www.rest-ar.com,N/A
+,170,ShopGo,http://shopgo.me,N/A
+,170,WePay,http://wepay.com,N/A
+,170,Zoog.A.I.,http://www.getzoog.com,https://www.linkedin.com/company/zooghq/
+,170,Ztock,https://www.ztock.app/,https://www.linkedin.com/company/ztock/about/
+,171,Backtype,http://backtype.com,N/A
+,171,Clothes Horse,http://www.clotheshor.se,N/A
+,171,Farmeron,http://farmeron.com,N/A
+,171,Humanoid,http://speakertext.com,N/A
+,171,PTA Networks,http://thepta.com,N/A
+,171,UserFox,http://userfox.com,N/A
+,171,Wupima,http://hookmobile.com,N/A
+,172,Behance,http://behance.net,N/A
+,172,HAAWK,http://www.haawk.com,N/A
+,172,Kindara,http://kindara.com,N/A
+,172,Kinnek,http://kinnek.com,N/A
+,172,OneTrueFan,http://onetruefan.com,N/A
+,172,RiskPulse,http://stormpulse.com,N/A
+,172,The Other Guys,http://other-guys.com,N/A
+,172,Tripoto Travel,http://www.tripoto.com,N/A
+,172,Wiji,http://imrsv.com,N/A
+,174,Crocodoc,http://crocodoc.com,N/A
+,174,Fakespot,http://www.fakespot.com,N/A
+,174,MakeLeaps,http://makeleaps.jp,N/A
+,174,SendGrid,http://sendgrid.com,N/A
+,177,Bankons,http://bankons.com,N/A
+,177,Cadee,http://cadee.co,N/A
+,177,Crema,http://crema.co,N/A
+,177,Dverse,http://www.symmetry-dimensions.com,N/A
+,177,Gazehawk,http://gazehawk.com,N/A
+,177,GoSpotCheck,http://gospotcheck.com,N/A
+,177,Hall,http://hall.com,N/A
+,177,MoonFruit,http://moonfruit.com,N/A
+,177,Yealthy,http://fullstackacademy.com,N/A
+,178,Giftcard Zen,http://giftcardzen.com,N/A
+,178,Jeeran,http://jeeran.com,N/A
+,178,Regulus,http://regulus-technologies.co.jp,N/A
+,178,TransFS,http://feefighters.com,N/A
+,178,Wiser,http://wiser.com,N/A
+,178,Wove,http://wove.com,N/A
+,178,Your Superfoods,http://yoursuper.com,N/A
+,183,BoomTrain,http://boomtrain.com,N/A
+,183,Bunch,http://joinbunch.com,N/A
+,183,Curlec,http://www.curlec.com,N/A
+,183,LocBox Labs,http://fetchrev.com,N/A
+,183,LookSharp,http://internmatch.com,N/A
+,184,Freejit,http://qualaroo.com,N/A
+,184,Keen.io,http://keen.io,N/A
+,184,Klarity,http://www.klarity-analytics.com,N/A
+,184,Meddy,http://www.meddy.co,N/A
+,184,Scoopola,http://www.getwillcall.com,N/A
+,184,Tapastic,http://tapastic.com,N/A
+,184,Tapchief,http://www.tapchief.com,N/A
+,185,Amped,http://www.applauze.com,N/A
+,185,Flywire,http://www.flywire.com,N/A
+,185,Forrst,http://www.forrst.com,N/A
+,185,Lenda,http://lenda.com,N/A
+,186,Alltrails,http://alltrails.com,N/A
+,186,AppBistro,http://appbistro.com,N/A
+,186,InSparq,http://insparq.com,N/A
+,186,Leade.rs,http://leade.rs,N/A
+,186,Limbo Labs,http://readyforzero.com,N/A
+,186,Motion Math,http://motionmathgames.com,N/A
+,186,Rapportive,http://rapportive.com,N/A
+,186,RepublicProject,http://republicproject.com,N/A
+,186,SambaAds,http://www.ycontent.com.br,N/A
+,189,Almabase,http://almabase.com,N/A
+,189,Chromatik,http://chromatik.com,N/A
+,189,Import2,http://import2.com,N/A
+,189,Keen Print,http://keenprint.com,N/A
+,189,Plerk,http://plerk.com,https://www.linkedin.com/company/plerk/
+,189,Poko,http://www.shoppa.biz,N/A
+,189,The Beard Club,http://thebeardclub.com,N/A
+,189,Yacob,http://yacob.com,N/A
+,190,Button,http://mysteryscience.com,N/A
+,190,Contactually,http://contactually.com,N/A
+,190,Fave,http://www.myfave.com,N/A
+,190,Linkdex,http://linkdex.com,N/A
+,190,Magalix,http://www.magalix.com,N/A
+,190,Tinfoil Security,http://tinfoilsecurity.com,N/A
+,190,Vungle,http://vungle.com,N/A
+,191,Local Bushel,http://localbushel.com,N/A
+,191,OneKitchen,http://joinonekitchen.com,N/A
+,191,Pana,http://pana.com,N/A
+,191,QueueDr,http://queuedr.com,N/A
+,191,Rebaja Tus Cuentas,http://rebajatuscuentas.com,N/A
+,191,Sentieo,http://sentieo.com,N/A
+,191,Tradegecko,http://tradegecko.com,N/A
+,191,Yaydoo,http://yaydoo.com,N/A
+,192,Adphorus,http://adphorus.com,N/A
+,192,Clutch Learning,http://clutchprep.com,N/A
+,192,Famebit,http://famebit.com,N/A
+,192,PredictionIO,http://prediction.io,N/A
+,192,VivaReal,http://vivareal.com.br,N/A
+,194,Attendease,http://attendease.com,N/A
+,194,Bucket,http://likebucket.com,N/A
+,194,Movielala,http://www.movielala.com,N/A
+,194,Newoldstamp,http://newoldstamp.com,N/A
+,194,Paynas,http://paynas.com,N/A
+,194,Retailigence,http://retailigence.com,N/A
+,194,Skry,http://www.skry.tech,N/A
+,194,Zapr,http://zapr.in,N/A
+,195,CraftCoffee,http://craftcoffee.com,N/A
+,195,EcoMom,http://ecomom.com,N/A
+,195,Fitocracy,http://fitocracy.com,N/A
+,195,PlayCanvas,http://playcanvas.com,N/A
+,195,SiteJabber,http://sitejabber.com,N/A
+,195,Tailored,http://www.boatbound.co,N/A
+,195,TotSpot,http://totspot.me,N/A
+,195,Wallex,http://wallex.asia,N/A
+,195,Willing,http://willing.com,N/A
+,196,Artivest,http://artivest.co,N/A
+,196,ClippPR,http://primeloop.com,N/A
+,196,Crew32,http://comparably.com,N/A
+,196,Eloquii,http://eloquii.com,N/A
+,196,Lish,http://lishfood.com,https://www.linkedin.com/company/lish/
+,196,Vidcaster,http://www.vidcaster.com,N/A
+,196,Virool,http://virool.com,N/A
+,197,CStorePro,http://cstorepro.com,N/A
+,197,Eventup,http://eventup.com,N/A
+,197,Gengo,http://gengo.com,N/A
+,197,Insurgent,http://www.fundrocket.com,N/A
+,197,Loupe,http://plangrid.com,N/A
+,197,OVIA,http://wepow.com,N/A
+,197,Qustn,http://capabiliti.co,N/A
+,198,DrChrono,http://drchrono.com,N/A
+,198,Okol,http://propiedades.com,N/A
+,198,rakam,http://rakam.io,N/A
+,198,Remind,http://remind.com,https://linkedin.com/company/remindhq
+,198,TT Labs,http://videopixie.com,N/A
+,198,uNow,http://unow.com,N/A
+,198,WalkerCo,http://walkerandcompany.com,N/A
+,199,BARK,http://www.barkbox.com,N/A
+,199,ChromaOm,http://colourlovers.com,N/A
+,199,Intap Labs,http://helloenglish.com,N/A
+,199,Noonswoon,http://noonswoonapp.com,N/A
+,199,Silk Labs,http://silklabs.com,N/A
+,199,Viki,http://viki.com,N/A
+,20,Bonpara,http://bonpara.com,https://www.linkedin.com/company/bonpara/
+,20,Boomerang,http://boomerangapp.com,N/A
+,20,Botanalytics,http://botanalytics.co,N/A
+,20,Boundless,http://www.bridge.legal,N/A
+,200,CourseGuide,http://coursereport.com,N/A
+,200,Doodle Mobile,http://doodlemobile.com,N/A
+,200,Leaky,http://leaky.com,N/A
+,200,Simple,http://simple.com,N/A
+,200,Valor Water Analytics,http://valorwater.com,N/A
+,200,YouScan,http://www.leadscanr.com,N/A
+,200,Zumata,http://zumata.com,N/A
+,201,Finsify,http://hub.finsify.com,N/A
+,201,Gantto,http://gantto.com,N/A
+,201,LightBox,http://lightbox.com,N/A
+,201,Medico.com,http://www.medico.com,N/A
+,201,Prodsmart,http://prodsmart.com,N/A
+,201,VLTA,http://www.voltacharging.com,N/A
+,201,Wrappup,http://www.wrappup.ai,N/A
+,201,YOU-app,http://you-app.com,N/A
+,207,Epic!,http://www.getepic.com,N/A
+,207,HandUp,http://handup.org,N/A
+,207,Khush,http://www.khu.sh,N/A
+,207,Pocket Menu,http://pocket-concierge.jp,N/A
+,207,SafeShepherd,http://safeshepherd.com,N/A
+,207,SkimBit,http://skimlinks.com,N/A
+,207,StreamLoan,http://streamloan.io,N/A
+,207,Votizen,http://www.votizen.com,N/A
+,207,Winc,http://www.winc.com,N/A
+,212,Breaker,http://brkr.jp,N/A
+,212,CucumberTown,http://cucumbertown.com,N/A
+,212,Don.na,http://incredible.io,N/A
+,212,HelloFlo,http://helloflo.com,N/A
+,212,Insightful Labs,http://targetingmantra.com,N/A
+,212,WAH Holidays,http://weareholidays.com,N/A
+,213,Beeline Bikes,http://beelinebikes.com,N/A
+,213,Little Eye,http://littleeye.co,N/A
+,213,Milk and Honey,http://milkandhoneyshoes.com,N/A
+,213,Polly,http://askwhale.com,N/A
+,213,Zya,http://zyamusic.com,N/A
+,214,Carnot Innovations,http://www.carnot-innovations.com,N/A
+,214,Japan,http://fullcourt.co,N/A
+,214,Kuraseru,http://www.kuraseru.co.jp,N/A
+,214,Mogotix,http://mogotix.com,N/A
+,214,Olev,http://www.olev.com.tr,N/A
+,214,Referly,http://mattermark.com,N/A
+,214,Salido,http://salido.com,N/A
+,214,Tradesy,http://tradesy.com,N/A
+,218,Divshot,http://divshot.com,N/A
+,218,Erply,http://erply.com,N/A
+,218,eSpark,http://esparklearning.com,N/A
+,218,FounderDating,http://founderdating.com,N/A
+,218,Snapette,http://snapette.com,N/A
+,218,Sunrise Atelier,http://sunrise.am,N/A
+,218,SwitchMe,http://switchme.in,N/A
+,218,Womply,http://womply.com,N/A
+,219,Beeem,http://tinypost.co,N/A
+,219,BotSociety,http://botsociety.io,N/A
+,219,Eventtus,http://eventtus.com,N/A
+,219,HiGear,http://streamlabs.com,N/A
+,219,Manifest,http://socialwire.com,N/A
+,219,MyGola,http://mygola.com,N/A
+,219,Nuzzel,http://nuzzel.com,N/A
+,219,Otherinbox,http://otherinbox.com,N/A
+,219,RolePoint,http://rolepoint.com,N/A
+,22,Brightflag,http://brightflag.com,N/A
+,22,Brilliant,http://brilliant.org,N/A
+,22,Briza,http://www.briza.com,N/A
+,22,Brodo,http://bro.do,N/A
+,22,Buela,http://www.buela.ai,N/A
+,22,BUGSTER INC.,https://bugster.dev/,https://www.linkedin.com/company/bugsterapp/
+,220,Adjoint,http://boostable.com,N/A
+,220,Causera,http://www.simplycircle.com,N/A
+,220,Clarity,http://clarity.fm,N/A
+,220,Homeday,http://www.homeday.de,N/A
+,220,LeadGenius,http://www.leadgenius.com,N/A
+,220,Visor,http://visor.io,N/A
+,222,Boxbee,http://boxbee.com,N/A
+,222,Dsco,http://www.dsco.io,https://www.linkedin.com/company/dropship-commerce
+,222,Foodspotting,http://foodspotting.com,N/A
+,222,Makerbot,http://makerbot.com,N/A
+,222,TaskDock,http://versly.com,N/A
+,222,Villoid,http://villoid.com,N/A
+,28,Chefaa,http://chefaa.com,https://www.linkedin.com/company/getchefaa
+,28,Chi Longevity,http://www.chilongevity.com,N/A
+,28,Chickin,http://chickin.id,https://www.linkedin.com/company/chick-in/
+,28,Chikaku,http://www.chikaku.co.jp,N/A
+,28,Chimelabs Holdings PTY LTD,http://www.chimelabs.ai,https://www.linkedin.com/company/109115283
+,28,Chipax,http://www.chipax.com,https://www.linkedin.com/company/chipax/
+,31,Cloud Commerce,http://cloudcommerce.co,N/A
+,31,CloudAStructure Inc,http://www.cloudastructure.com,N/A
+,31,Cobalt,http://www.cobalt.io,N/A
+,31,Codementor,http://www.codementor.io,N/A
+,31,Cognium,N/A,N/A
+,31,Combo,http://combonetwork.io,N/A
+,32,Come Bien,http://comebien.mx,N/A
+,32,Comento,http://www.comento.kr,N/A
+,32,Cometa,http://www.getcometa.com,https://www.linkedin.com/company/getcometa
+,32,Commitchange,http://commitchange.com,N/A
+,32,Compstak,http://www.compstak.com,https://www.linkedin.com/company/compstak
+,32,Conekta,http://www.conekta.com,N/A
+,33,ConfiAbogado,http://confiabogado.com,https://mx.linkedin.com/company/confiabogado
+,33,Conicle,http://conicle.com,N/A
+,33,Connected Robotics,http://connected-robotics.com,N/A
+,33,Contaazul,http://contaazul.com,N/A
+,33,Contalink,http://www.contalink.com,N/A
+,33,Conteller,http://www.conteller.com,https://www.linkedin.com/company/conteller-app/
+,33,Contently,http://contently.com,N/A
+,33,Coolso,http://coolsotech.com,https://linkedin.com/company/coolso
+,36,"CXX Co., Ltd.",http://cheriexx.com,N/A
+,36,Cuponomia,http://www.cuponomia.com.br,N/A
+,36,Curio Labs,http://curio.io,https://www.linkedin.com/company/curio-labs
+,37,Dabchy,http://www.dabchy.com,https://www.linkedin.com/company/dabchy
+,37,Dagangan,http://dagangan.com,N/A
+,37,Danit,N/A,N/A
+,37,DARWINBOX DIGITAL SOLUTIONS,http://darwinbox.com,https://www.linkedin.com/company/thedarwinbox
+,37,Datafree,http://datafr.ee,N/A
+,37,Datakrew,http://www.datakrew.com,N/A
+,41,Docdoc,http://www.docdoc.com,N/A
+,41,Dora,http://holadora.co,https://www.linkedin.com/company/hola-dora/
+,41,Drahim Holdings,http://drahim.sa,https://www.linkedin.com/company/drahim/
+,41,Drivemate,http://www.drivemate.asia,N/A
+,43,e-CROSS,https://www.e-cross.tech/,https://www.linkedin.com/company/e-cross/
+,43,Eco Gear,https://www.ecogear.co.kr/,N/A
+,43,EdfaPay,http://edfapay.com,https://www.linkedin.com/company/edfapay/
+,43,Eduadvisor,http://eduadvisor.my,N/A
+,43,Edukita,http://www.edukita.com,https://www.linkedin.com/company/edukitalive/about/
+,43,EFEX,http://efexpay.com,https://www.linkedin.com/company/ventupay/
+,43,Effa,http://www.effa.one,https://www.linkedin.com/company/effabrush/
+,45,"ELORIAN AT, INC.",N/A,N/A
+,45,Element Ai,http://www.elementai.com,N/A
+,45,Elevarm,http://elevarm.com,https://www.linkedin.com/company/elevarm/
+,45,Elevate,http://elevateapp.com,N/A
+,45,Ematic Solutions,http://www.ematicsolutions.com,N/A
+,5,Algolia,http://www.algolia.com,N/A
+,5,Aliena,http://www.aliena.sg,N/A
+,5,Allcare,http://www.allcare.ph,https://www.linkedin.com/company/allcare-i-o/
+,53,Firstory,http://firstory.me,https://www.linkedin.com/company/firstory
+,53,Fitbody,http://fitbody.mx,N/A
+,53,FitzyTV,http://www.fitzytv.com,https://www.linkedin.com/company/fitzytv/
+,53,Five Jack,http://fivejack.com,N/A
+,53,Flat,http://www.clau.com,https://www.linkedin.com/company/abreclau
+,53,Fleak Tech Inc.,N/A,N/A
+,53,Flex,http://flexfinance.ai,https://www.linkedin.com/company/flexfinance/
+,53,Flexpa,http://www.flexpa.com,https://linkedin.com/company/flexpa
+,54,Flightfox,http://flightfox.com,N/A
+,54,Floom,http://www.floom.com,N/A
+,54,Flowaccount,http://flowaccount.com,N/A
+,54,Floward,http://floward.com,https://www.linkedin.com/company/flowardco
+,54,Flowly,http://www.flowly.world,N/A
+,54,Fluent.ai,http://fluent.ai,N/A
+,54,Flye,http://www.flye.co,N/A
+,55,Food Market Hub,http://www.foodmarkethub.com,N/A
+,55,Fooda,http://www.fooda.com,N/A
+,55,Foodics,http://www.foodics.com,https://www.linkedin.com/company/foodics
+,55,Forged Sports,http://www.forgedsports.co,N/A
+,55,Fox-tech,http://www.fox-tech.co,N/A
+,55,Freed Group Tech,http://freedgrouptech.com,N/A
+,56,Frenz,http://frenzband.com,N/A
+,56,Freshket,http://www.freshket.co,N/A
+,56,Freshop,http://freshop.com,N/A
+,56,FT Cash,http://www.ftcash.com,N/A
+,56,Fullcontact,http://www.fullcontact.com,https://www.linkedin.com/company/fullcontact-inc-
+,56,Funding Societies,http://fundingsocieties.com,https://linkedin.com/company/funding-societies-modalku
+,56,Fy!,http://www.iamfy.co,https://www.linkedin.com/company/project-j
+,57,"GenMD AI, Generative Medical, GenMD",N/A,N/A
+,57,Garaji,http://www.garaji.com,https://www.linkedin.com/company/garaji
+,57,Gas POS,http://www.gaspos.co,N/A
+,57,Gaspack,http://www.gaspack.xyz,https://www.linkedin.com/company/gaspack-nft-launchpad/
+,57,Gathern,http://gathern.co,https://www.linkedin.com/company/gathern.co
+,57,Geckoboard,http://www.geckoboard.com,N/A
+,57,Genomelink,http://genomelink.io,N/A
+,57,GeoGrid,http://www.egeogrid.com,N/A
+,60,Globish,http://www.globish.co.th,https://www.linkedin.com/company/globish-academia/
+,60,Gloset,http://gloset.mx,https://www.linkedin.com/company/gloset/
+,60,Glyph,http://glyph.earth,N/A
+,60,Gnowbe,http://www.gnowbe.com,N/A
+,60,Godays,http://godays.co,N/A
+,60,Goget,http://goget.my,N/A
+,62,Go X,http://goxapp.com,N/A
+,62,GraaS,N/A,N/A
+,62,Grab,http://www.grab.com,N/A
+,62,Graffer,http://graffer.jp,https://www.linkedin.com/company/%EF%BC%88%E6%A0%AA%EF%BC%89%E3%82%B0%E3%83%A9%E3%83%95%E3%82%A1%E3%83%BC
+,62,Grain,http://grain.com.sg,N/A
+,62,Grana,http://www.grana.com,N/A
+,62,Graphiq,http://www.graphiq.design,N/A
+,62,Graviti,http://www.graviti.mx,https://www.linkedin.com/company/gravitimexico/about/
+,62,Greentoe,http://www.greentoe.com,N/A
+,63,Grinta,http://grinta.ai,N/A
+,63,groupx media PTE.LTD,N/A,N/A
+,63,Grove Collaborative,http://www.grove.co,N/A
+,63,Guideline,http://www.guideline.com,N/A
+,63,Guruhotel,http://www.guruhotel.com,N/A
+,63,GVRT,http://grvt.io,https://www.linkedin.com/company/gravitygroupio/about/
+,64,H2O Hospitality,http://h2ohospitality.io,N/A
+,64,Habitus Associates,http://artue.io,https://www.linkedin.com/company/habitusassociates
+,64,Hackerearth,http://www.hackerearth.com,N/A
+,64,Halogen Capital,https://halogen.my,https://www.linkedin.com/company/halogen-capital/
+,64,Hamonia,http://www.harmoniainc.jp,N/A
+,64,Hamsa,http://hamsapay.com,https://linkedin.com/company/hamsa-finance
+,64,Hanah One,N/A,N/A
+,65,Hangry,http://www.ishangry.com,https://www.linkedin.com/company/wearehangry/
+,65,Happy World,http://getspice.com,N/A
+,65,Happy5,http://happy5.co,N/A
+,65,HappyCo,http://happy.co,https://www.linkedin.com/company/happyco/
+,65,Happyfresh,http://www.happyfresh.com,N/A
+,65,Haseel,http://haseelapp.com,https://www.linkedin.com/company/hasseel
+,65,Hatch Early Learning,http://www.hatchearlylearning.com,N/A
+,65,Haulio,http://www.haulio.io,N/A
+,65,Headout,http://www.headout.com,N/A
+,69,"HQ, Headquarters",http://www.hq.xyz,https://www.linkedin.com/company/hq-xyz/
+,69,"Humans&.ai, Inc",N/A,N/A
+,69,HOTCAKE,http://hotcakeapp.com,https://www.linkedin.com/company/hunger/
+,69,Huinno,http://www.huinno.com,https://www.linkedin.com/company/huinno
+,69,Huma Technologies,http://huma.finance,N/A
+,69,Humansignal,http://humansignal.com,N/A
+,69,humi.ca,http://www.humi.ca,N/A
+,69,HungryHub,http://web.hungryhub.com,N/A
+,80,Khmer Home,http://www.khmerhome.com,N/A
+,80,Kibin,http://www.kibin.com,N/A
+,80,Kiki,http://kiki.social,N/A
+,80,Kiko Labs,http://www.kikolabs.com,N/A
+,80,Kilo,http://kilo.vn,N/A
+,80,Kimola,http://kimola.com,N/A
+,80,KIND AI Pte Ltd,N/A,N/A
+,80,Kindor,http://kindor.co,https://www.linkedin.com/company/kindor/
+,81,Kinkhao,http://kinkao.co,N/A
+,81,Kita Bisa,http://kitabisa.com,N/A
+,81,Kiwico,http://www.kiwico.com,N/A
+,81,Klutch Card,http://klutchcard.com,https://www.linkedin.com/company/klutchworld
+,81,Knote,http://knote.com,N/A
+,81,Kodable,http://www.kodable.com,N/A
+,81,KokkanLogis,http://www.kokkanlogis.co.kr,N/A
+,81,Kolayik,http://kolayik.com,N/A
+,82,Komerce,http://komerce.id,https://www.linkedin.com/company/komerceid
+,82,Kompyte ( Acq. by Semrush NYSE:SEMR),http://kompyte.com,N/A
+,82,Kondukto,http://kondukto.io,N/A
+,82,Konser,http://app.sermorpheus.com,https://www.linkedin.com/company/sermorpheus/
+,82,Konvex (Wihom),http://wihom.com.co,https://www.linkedin.com/company/wihom/
+,82,Koska,http://www.koska.jp,N/A
+,82,Kovzy,http://kovzy.com,https://www.linkedin.com/company/kovzy/
+,83,Krosslinker,http://www.krosslinker.com,N/A
+,83,Krunch,http://krunchdata.io,https://www.linkedin.com/company/krunchdata/
+,83,Kyndoo,http://kyndoo.com,N/A
+,83,Labdoor,http://labdoor.com,N/A
+,83,Laka,http://laka.co,https://www.linkedin.com/company/lakahq
+,83,Lang.ai,http://www.lang.ai,N/A
+,86,Likeable Local,http://storytellit.com,N/A
+,86,LINSOL,https://linsol.kr/,https://www.linkedin.com/company/linsol-welcome/posts/?feedView=all
+,86,Live Kick,http://www.livekick.com,N/A
+,86,Liveboard,http://www.liveboard.online,https://www.linkedin.com/company/liveboard/?originalSubdomain=am
+,86,Livsho Holdings Limited,http://www.livsho.tv,N/A
+,86,LKEA,N/A,N/A
+,91,"Meals In Minutes, MIM",http://mealsinminutes.co,https://www.linkedin.com/company/meals-in-minutes-co/
+,91,MEAL PLANET,http://www.mealplanet.com,https://www.linkedin.com/company/mealplanet
+,91,Mealogic,http://www.territoryfoods.com,https://linkedin.com/company/territoryfoods/
+,91,Medir,http://medb.kr,N/A
+,91,Meitre,http://meitre.com,N/A
+,92,Mejuri,http://mejuri.com,https://www.linkedin.com/company/mejuri/
+,92,Mekan,http://somosmekan.com,https://www.linkedin.com/company/somosmekan/
+,92,Menteo,https://menteo.ai,https://www.linkedin.com/company/soyhabitue/
+,93,Merchbar,http://www.merchbar.com,N/A
+,93,Mercu,http://mercu.com,https://linkedin.com/company/mercu
+,93,Merkle Science,http://www.merklescience.com,N/A
+,93,Mero,http://www.mero.co,N/A
+,93,Meshcrafts,http://www.current.eco,N/A
+,93,Metro Residences,http://www.metroresidences.com,N/A
+,94,Meundies,http://www.meundies.com,N/A
+,94,Mhub,http://www.mhub.my,N/A
+,94,MiConcierge,http://www.micnegocios.com,N/A
+,94,Microbenefits,http://www.microbenefits.com,N/A
+,94,MIDAS Technologies,http://www.midascash.app,https://www.linkedin.com/company/midas-mx/
+,94,MightyText,http://www.mightytext.net,N/A
+,95,Mindvalley,http://www.mindvalley.com,N/A
+,95,Minu,https://minu.mx/,N/A
+,95,Miri,http://www.miri.health,https://www.linkedin.com/company/mirihealth
+,95,MisMar,http://mismarapp.com,https://www.linkedin.com/company/mismar-app
+,95,Miso,http://askmiso.com,https://www.linkedin.com/company/askmiso/
+,95,MisterBnB,http://www.misterbandb.com,N/A
+,95,Mixrank,http://mixrank.com,N/A
+,95,MNZL,http://mnzl.co,N/A
+,98,Moviation,http://www.moviationair.com,https://www.linkedin.com/company/moviationair
+,98,Mubit,http://mubit.co,https://www.linkedin.com/company/mubit-co/
+,98,Mural,http://mural.co,https://www.linkedin.com/company/mural.co
+,98,myBOX,http://my-box.kr,N/A
+,98,Mycash,http://inremit.co,https://www.linkedin.com/company/inremit/about/
 Distro_1,1,Albert,http://albert.com,N/A
 Distro_1,1,Bitrefill,http://www.bitrefill.com,N/A
 Distro_1,1,Borrowmydoggy,http://www.borrowmydoggy.com,N/A

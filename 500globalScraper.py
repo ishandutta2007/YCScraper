@@ -33,6 +33,7 @@ service = EdgeService(
 )
 
 batches = [
+    "",
     "Distro 1",
     "Dojo I",
     "Dojo II",
@@ -117,12 +118,24 @@ def is_positive_integer(s):
     return s.isdigit()
 
 
+def is_string_in_csv(search_string):
+    with open(csv_file_path, mode="r", newline="", encoding="utf-8") as f:
+        reader = csv.reader(f)
+        for row in reader:
+            if any(search_string in field for field in row):
+                return True
+    return False
+
+
 def launch_page(driver, batch, pageno, maxpageno):
     wait = WebDriverWait(driver, 40)
     company_cards = []  # Initialize to handle exceptions gracefully
 
     try:
-        url = f"https://500.co/portfolio?batch={batch}&page={pageno}"
+        if batch == "":
+            url = f"https://500.co/portfolio?page={pageno}"
+        else:
+            url = f"https://500.co/portfolio?batch={batch}&page={pageno}"
         driver.get(url)
         print(f"Navigating to {url}...")
         wait.until(
@@ -266,15 +279,16 @@ def scrape_500global_portfolio(batch):
                 print(f"Error processing card {i}: {e}")
                 traceback.print_exc()
 
-            scraped_data.append(
-                [
-                    batch.replace("%20", "_"),
-                    pageno,
-                    company_name,
-                    website_link,
-                    linkedin_link,
-                ]
-            )
+            if batch != "" or (batch == "" and is_string_in_csv(company_name) == False):
+                scraped_data.append(
+                    [
+                        batch.replace("%20", "_"),
+                        pageno,
+                        company_name,
+                        website_link,
+                        linkedin_link,
+                    ]
+                )
         pageno += 1
         time.sleep(5)
 
@@ -305,7 +319,7 @@ def count_string_in_list(all_data, target="N/A"):
 if __name__ == "__main__":
     all_data = []
     for batch in batches:
-        if is_string_in_csv(batch.replace(" ", "_")):
+        if batch!="" and is_string_in_csv(batch.replace(" ", "_")):
             continue
         all_data.extend(scrape_500global_portfolio(batch.replace(" ", "%20")))
         if count_string_in_list(all_data) == len(all_data) * 3:
