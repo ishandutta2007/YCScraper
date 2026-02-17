@@ -285,23 +285,19 @@ def is_string_in_csv(search_string):
                 return True
     return False
 
-
 if __name__ == "__main__":
     all_data = []
     for batch in batches:
+        if is_string_in_csv(batch.replace(" ", "_")):
+            continue
         all_data.extend(scrape_500global_portfolio(batch.replace(" ", "%20")))
-        print(all_data)
-        if not is_string_in_csv(batch.replace(" ", "_").replace("%20", "_")):
-            try:
-                with open(
-                    output_csv_path, "a", newline="", encoding="utf-8"
-                ) as csvfile:
-                    csv_writer = csv.writer(csvfile)
-                    # csv_writer.writerow(
-                    #     ["batch", "Pageno", "CompanyName", "Website", "LinkedIn"]
-                    # )
-                    csv_writer.writerows(all_data)
-                print(f"Scraping complete. Data saved to {output_csv_path}")
-            except IOError as e:
-                print(f"Error writing to CSV file: {e}")
-                traceback.print_exc()
+        try:
+            with open(
+                output_csv_path, "a", newline="", encoding="utf-8"
+            ) as csvfile:
+                csv_writer = csv.writer(csvfile)
+                csv_writer.writerows(all_data)
+            print(f"Scraping complete. {len(all_data)} Data rows added to {output_csv_path}")
+        except IOError as e:
+            print(f"Error writing to CSV file: {e}")
+            traceback.print_exc()
