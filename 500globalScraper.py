@@ -24,11 +24,13 @@ edge_options = EdgeOptions()
 edge_options.add_argument("--disable-dev-shm-usage")
 
 # 1. Silences the "DevTools listening on..." message
-edge_options.add_experimental_option('excludeSwitches', ['enable-logging'])
+edge_options.add_experimental_option("excludeSwitches", ["enable-logging"])
 # 2. Silences general browser logs (optional but recommended)
-edge_options.add_argument('--log-level=3')
+edge_options.add_argument("--log-level=3")
 
-service = EdgeService(executable_path="C:/edgedriver_win64/msedgedriver.exe", log_path=os.devnull)
+service = EdgeService(
+    executable_path="C:/edgedriver_win64/msedgedriver.exe", log_path=os.devnull
+)
 
 batches = [
     "Distro 1",
@@ -292,12 +294,21 @@ def is_string_in_csv(search_string):
     return False
 
 
+def count_string_in_list(all_data, target="N/A"):
+    total_count = sum(sublist.count(target) for sublist in all_data)
+    return total_count
+
+
 if __name__ == "__main__":
     all_data = []
     for batch in batches:
         if is_string_in_csv(batch.replace(" ", "_")):
             continue
         all_data.extend(scrape_500global_portfolio(batch.replace(" ", "%20")))
+        if count_string_in_list(all_data) == len(all_data) * 3:
+            print(f"No valid row for batch {batch}")
+            print(all_data)
+            continue
         try:
             with open(output_csv_path, "a", newline="", encoding="utf-8") as csvfile:
                 csv_writer = csv.writer(csvfile)
