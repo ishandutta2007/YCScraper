@@ -22,7 +22,13 @@ with open(output_csv_path, "a", newline="", encoding="utf-8") as f:
 edge_options = EdgeOptions()
 # edge_options.add_argument("--headless=new")
 edge_options.add_argument("--disable-dev-shm-usage")
-service = EdgeService(executable_path="C:/edgedriver_win64/msedgedriver.exe")
+
+# 1. Silences the "DevTools listening on..." message
+edge_options.add_experimental_option('excludeSwitches', ['enable-logging'])
+# 2. Silences general browser logs (optional but recommended)
+edge_options.add_argument('--log-level=3')
+
+service = EdgeService(executable_path="C:/edgedriver_win64/msedgedriver.exe", log_path=os.devnull)
 
 batches = [
     "Distro 1",
