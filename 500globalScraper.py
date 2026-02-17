@@ -254,26 +254,49 @@ def scrape_500global_portfolio(batch):
                 traceback.print_exc()
 
             scraped_data.append(
-                [batch, pageno, company_name, website_link, linkedin_link]
+                [
+                    batch.replace("%20", "_"),
+                    pageno,
+                    company_name,
+                    website_link,
+                    linkedin_link,
+                ]
             )
         pageno += 1
         time.sleep(5)
 
     driver.quit()
+    print(
+        f"Returning {len(scraped_data)} rows from scrape_500global_portfolio: {batch}."
+    )
     return scraped_data
+
+
+def is_string_in_csv(search_string):
+    with open(csv_file_path, mode="r", newline="", encoding="utf-8") as f:
+        reader = csv.reader(f)
+        for row in reader:
+            if any(search_string in field for field in row):
+                return True
+    return False
 
 
 if __name__ == "__main__":
     all_data = []
     for batch in batches:
         all_data.extend(scrape_500global_portfolio(batch.replace(" ", "%20")))
-
-    try:
-        with open(output_csv_path, "w", newline="", encoding="utf-8") as csvfile:
-            csv_writer = csv.writer(csvfile)
-            csv_writer.writerow(["batch", "Pageno", "CompanyName", "Website", "LinkedIn"])
-            csv_writer.writerows(all_data)
-        print(f"Scraping complete. Data saved to {output_csv_path}")
-    except IOError as e:
-        print(f"Error writing to CSV file: {e}")
-        traceback.print_exc()
+        print(all_data)
+        if not is_string_in_csv(batch.replace(" ", "_").replace("%20", "_")):
+            try:
+                with open(
+                    output_csv_path, "a", newline="", encoding="utf-8"
+                ) as csvfile:
+                    csv_writer = csv.writer(csvfile)
+                    csv_writer.writerow(
+                        ["batch", "Pageno", "CompanyName", "Website", "LinkedIn"]
+                    )
+                    csv_writer.writerows(all_data)
+                print(f"Scraping complete. Data saved to {output_csv_path}")
+            except IOError as e:
+                print(f"Error writing to CSV file: {e}")
+                traceback.print_exc()
