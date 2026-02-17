@@ -3,11 +3,11 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
-from selenium.webdriver.chrome.options import Options as ChromeOptions # Assuming Chrome, but can be Edge
-# from selenium.webdriver.edge.options import Options as EdgeOptions # Uncomment for Edge
-# from selenium.webdriver.edge.service import Service as EdgeService # Uncomment for Edge
-from webdriver_manager.chrome import ChromeDriverManager # Assuming Chrome
-# from webdriver_manager.microsoft import EdgeChromiumDriverManager # Uncomment for Edge
+# from selenium.webdriver.chrome.options import Options as ChromeOptions # Assuming Chrome, but can be Edge
+from selenium.webdriver.edge.options import Options as EdgeOptions # Uncomment for Edge
+from selenium.webdriver.edge.service import Service as EdgeService # Uncomment for Edge
+# from webdriver_manager.chrome import ChromeDriverManager # Assuming Chrome
+from webdriver_manager.microsoft import EdgeChromiumDriverManager # Uncomment for Edge
 
 import csv
 import os
@@ -18,11 +18,11 @@ def scrape_500global_portfolio():
     url = "https://500.co/portfolio"
     output_csv_path = "500global_portfolio.csv"
 
-    # Set up Chrome options for headless browsing
-    chrome_options = ChromeOptions()
-    chrome_options.add_argument("--headless=new")
-    # chrome_options.add_argument("--no-sandbox")
-    chrome_options.add_argument("--disable-dev-shm-usage")
+    # Set up Edge options for headless browsing
+    edge_options = EdgeOptions()
+    # edge_options.add_argument("--headless=new")
+    edge_options.add_argument("--disable-dev-shm-usage")
+    service = EdgeService(executable_path="C:/edgedriver_win64/msedgedriver.exe")
     
     # You might need to specify the executable path if webdriver_manager has issues
     # service = ChromeService(executable_path=ChromeDriverManager().install()) # For Chrome
@@ -31,11 +31,11 @@ def scrape_500global_portfolio():
     # For simplicity, using directly without explicit service in some versions,
     # or rely on webdriver_manager to download and manage.
     try:
-        driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
+        driver = webdriver.Edge(service=service, options=edge_options)
     except Exception as e:
         print(f"Error setting up Selenium WebDriver: {e}")
-        print("Attempting to initialize WebDriver without explicitly providing service (might work if chromedriver is in PATH).")
-        driver = webdriver.Chrome(options=chrome_options)
+        print("Attempting to initialize WebDriver without explicitly providing service (might work if msedgedriver is in PATH).")
+        driver = webdriver.Edge(options=edge_options)
 
 
     wait = WebDriverWait(driver, 20) # Increased wait time
@@ -71,7 +71,8 @@ def scrape_500global_portfolio():
         company_card_selector = "//div[contains(@class, 'flex p-4 flex-col-reverse') and contains(@class, 'bg-white') and contains(@class, 'rounded-[7px]') and contains(@class, 'border')]"
         wait.until(EC.presence_of_all_elements_located((By.XPATH, company_card_selector)))
         company_cards = driver.find_elements(By.XPATH, company_card_selector)
-        
+        print("No of card_elements:", len(company_cards))
+
         if not company_cards:
             print("No company cards found after dynamic load. Check selectors and page structure.")
             driver.quit()
