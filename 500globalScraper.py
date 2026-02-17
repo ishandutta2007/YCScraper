@@ -13,6 +13,11 @@ import time
 import traceback
 
 output_csv_path = "500global_portfolio.csv"
+file_exists = os.path.isfile(output_csv_path)
+with open(output_csv_path, "a", newline="", encoding="utf-8") as f:
+    writer = csv.writer(f)
+    if not file_exists:
+        writer.writerow(["Batch", "Pageno", "Company_Name", "Website", "LinkedIn"])
 
 edge_options = EdgeOptions()
 # edge_options.add_argument("--headless=new")
@@ -273,7 +278,7 @@ def scrape_500global_portfolio(batch):
 
 
 def is_string_in_csv(search_string):
-    with open(csv_file_path, mode="r", newline="", encoding="utf-8") as f:
+    with open(output_csv_path, mode="r", newline="", encoding="utf-8") as f:
         reader = csv.reader(f)
         for row in reader:
             if any(search_string in field for field in row):
@@ -292,9 +297,9 @@ if __name__ == "__main__":
                     output_csv_path, "a", newline="", encoding="utf-8"
                 ) as csvfile:
                     csv_writer = csv.writer(csvfile)
-                    csv_writer.writerow(
-                        ["batch", "Pageno", "CompanyName", "Website", "LinkedIn"]
-                    )
+                    # csv_writer.writerow(
+                    #     ["batch", "Pageno", "CompanyName", "Website", "LinkedIn"]
+                    # )
                     csv_writer.writerows(all_data)
                 print(f"Scraping complete. Data saved to {output_csv_path}")
             except IOError as e:
