@@ -10,6 +10,7 @@ from webdriver_manager.microsoft import EdgeChromiumDriverManager
 import csv
 import os
 import time
+import traceback
 
 output_csv_path = "500global_portfolio.csv"
 
@@ -113,53 +114,63 @@ def launch_page(batch, pageno, maxpageno):
         )
         driver = webdriver.Edge(options=edge_options)
 
-    wait = WebDriverWait(driver, 20)  # Increased wait time
+    wait = WebDriverWait(driver, 20)
 
-    url = f"https://500.co/portfolio?batch={batch}&page={pageno}"
-    driver.get(url)
-    print(f"Navigating to {url}...")
-    wait.until(
-        EC.presence_of_element_located((By.XPATH, "//h2[text()='Portfolio Companies']"))
-    )
-    print("Page loaded. Waiting for company cards to appear...")
-
-    last_height = driver.execute_script("return document.body.scrollHeight")
-    while True:
-        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-        time.sleep(3)
-        new_height = driver.execute_script("return document.body.scrollHeight")
-        if new_height == last_height:
-            break
-        last_height = new_height
-
-    company_card_selector = "//div[contains(@class, 'flex p-4 flex-col-reverse') and contains(@class, 'bg-white') and contains(@class, 'rounded-[7px]') and contains(@class, 'border')]"
-    wait.until(EC.presence_of_all_elements_located((By.XPATH, company_card_selector)))
-    company_cards = driver.find_elements(By.XPATH, company_card_selector)
-    print("No of card_elements:", len(company_cards))
-
-    if not company_cards:
-        print(
-            "No company cards found after dynamic load. Check selectors and page structure."
-        )
-        driver.quit()
-        return
-    if pageno == 1:
-        print("Waiting for page footer to appear...")
-        page_footer_selector = "nav > ul > li > a"
+    try:
+        url = f"https://500.co/portfolio?batch={batch}&page={pageno}"
+        driver.get(url)
+        print(f"Navigating to {url}...")
         wait.until(
-            EC.presence_of_all_elements_located((By.CSS_SELECTOR, page_footer_selector))
+            EC.presence_of_element_located(
+                (By.XPATH, "//h2[text()='Portfolio Companies']")
+            )
         )
-        print("Pages:")
-        page_no_elems = driver.find_elements(By.CSS_SELECTOR, page_footer_selector)
-        page_nos = []
-        for page_no_elem in page_no_elems:
-            page_nos.append(page_no_elem.text)
-            if is_positive_integer(page_no_elem.text):
-                maxpageno = max(maxpageno, int(page_no_elem.text))
-        print("page_nos", page_nos)
-        print("maxpageno", maxpageno)
+        print("Page loaded. Waiting for company cards to appear...")
 
-    print(f"Found {len(company_cards)} company cards on {url}.")
+        last_height = driver.execute_script("return document.body.scrollHeight")
+        while True:
+            driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+            time.sleep(3)
+            new_height = driver.execute_script("return document.body.scrollHeight")
+            if new_height == last_height:
+                break
+            last_height = new_height
+
+        company_card_selector = "//div[contains(@class, 'flex p-4 flex-col-reverse') and contains(@class, 'bg-white') and contains(@class, 'rounded-[7px]') and contains(@class, 'border')]"
+        wait.until(
+            EC.presence_of_all_elements_located((By.XPATH, company_card_selector))
+        )
+        company_cards = driver.find_elements(By.XPATH, company_card_selector)
+        print("No of card_elements:", len(company_cards))
+
+        if not company_cards:
+            print(
+                "No company cards found after dynamic load. Check selectors and page structure."
+            )
+            driver.quit()
+            return
+        if pageno == 1:
+            print("Waiting for page footer to appear...")
+            page_footer_selector = "nav > ul > li > a"
+            wait.until(
+                EC.presence_of_all_elements_located(
+                    (By.CSS_SELECTOR, page_footer_selector)
+                )
+            )
+            page_no_elems = driver.find_elements(By.CSS_SELECTOR, page_footer_selector)
+            page_nos = []
+            for page_no_elem in page_no_elems:
+                page_nos.append(page_no_elem.text)
+                if is_positive_integer(page_no_elem.text):
+                    maxpageno = max(maxpageno, int(page_no_elem.text))
+            print("page_nos", page_nos)
+            print("maxpageno", maxpageno)
+
+        print(f"Found {len(company_cards)} company cards on {url}.")
+    except Exception as e:
+        print(e)
+        traceback.print_exc()
+
     return company_cards, maxpageno
 
 
@@ -169,7 +180,7 @@ def scrape_500global_portfolio(batch):
     while pageno <= maxpageno:
         company_cards, maxpageno = launch_page(batch, pageno, maxpageno)
         scraped_data = []
-        scraped_data.append(["CompanyName", "Website", "LinkedIn"])
+        scraped_data.append(["batch", "Pageno", "CompanyName", "Website", "LinkedIn"])
 
         for i, card_element in enumerate(company_cards):
             company_name = "N/A"
@@ -231,8 +242,11 @@ def scrape_500global_portfolio(batch):
 
             except Exception as e:
                 print(f"Error processing card {i}: {e}")
+                traceback.print_exc()
 
-            scraped_data.append([company_name, website_link, linkedin_link])
+            scraped_data.append(
+                [batch, pageno, company_name, website_link, linkedin_link]
+            )
 
         try:
             with open(output_csv_path, "w", newline="", encoding="utf-8") as csvfile:
@@ -241,6 +255,7 @@ def scrape_500global_portfolio(batch):
             print(f"Scraping complete. Data saved to {output_csv_path}")
         except IOError as e:
             print(f"Error writing to CSV file: {e}")
+            traceback.print_exc()
 
         pageno += 1
         time.sleep(5)
