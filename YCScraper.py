@@ -171,10 +171,9 @@ try:
         with open(csv_file_path, "a", newline="", encoding="utf-8") as f:
             writer = csv.writer(f)
             writer.writerows(data)
+        print(
+            f"Scraping complete. Data saved to yc_founders_social.csv with {len(data)} entries."
+        )
 finally:
     driver.quit()
 
-
-print(
-    f"Scraping complete. Data saved to yc_founders_social.csv with {len(data)} entries."
-)
