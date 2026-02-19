@@ -76,3 +76,8 @@ Contributions are welcome! If you have suggestions for improvements, bug fixes, 
 ## 📄 License
 This project is licensed under the MIT License - see the `LICENSE` file for details.
 *(Note: A `LICENSE` file should be added to the repository if not already present.)*
+
+
+### ✨ Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=ishandutta2007/YCScraper&type=date&legend=top-left)](https://www.star-history.com/#ishandutta2007/YCScraper&type=date&legend=top-left)
