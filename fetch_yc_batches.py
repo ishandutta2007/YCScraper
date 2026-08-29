@@ -79,7 +79,9 @@ def fetch_algolia_credentials() -> Tuple[str, str]:
                 api_key = opts.get("key", DEFAULT_ALGOLIA_KEY)
                 return app_id, api_key
     except Exception as e:
-        print(f"[Warning] Failed to dynamically scrape Algolia credentials ({e}). Using default keys.")
+        print(
+            f"[Warning] Failed to dynamically scrape Algolia credentials ({e}). Using default keys."
+        )
     return DEFAULT_ALGOLIA_APP, DEFAULT_ALGOLIA_KEY
 
 
@@ -180,7 +182,9 @@ def transform_company_to_row(company: Dict[str, Any]) -> Dict[str, Any]:
 
 def sanitize_batch_filename(batch_name: str) -> str:
     """Converts a batch name like 'Winter 2024' or 'Summer 2021' to '{year}_{season}.csv' (e.g. '2024_Winter.csv')."""
-    match = re.search(r"^(Winter|Spring|Summer|Fall)\s+(\d{4})$", batch_name.strip(), re.IGNORECASE)
+    match = re.search(
+        r"^(Winter|Spring|Summer|Fall)\s+(\d{4})$", batch_name.strip(), re.IGNORECASE
+    )
     if match:
         season, year = match.group(1).title(), match.group(2)
         return f"{year}_{season}.csv"
@@ -192,7 +196,9 @@ def sanitize_batch_filename(batch_name: str) -> str:
 def sort_batch_key(batch_name: str) -> Tuple[int, int]:
     """Helper to sort batches chronologically (Year, Season)."""
     season_order = {"Winter": 1, "Spring": 2, "Summer": 3, "Fall": 4}
-    match = re.search(r"(Winter|Spring|Summer|Fall)\s+(\d{4})", batch_name, re.IGNORECASE)
+    match = re.search(
+        r"(Winter|Spring|Summer|Fall)\s+(\d{4})", batch_name, re.IGNORECASE
+    )
     if match:
         season, year = match.group(1).title(), int(match.group(2))
         return (year, season_order.get(season, 0))
@@ -256,14 +262,20 @@ def main():
     if args.batch:
         target_batches = [b for b in sorted_batches if b.lower() == args.batch.lower()]
         if not target_batches:
-            print(f"[Error] Batch '{args.batch}' not found. Available: {sorted_batches}")
+            print(
+                f"[Error] Batch '{args.batch}' not found. Available: {sorted_batches}"
+            )
             sys.exit(1)
     elif args.season != "All":
-        target_batches = [b for b in sorted_batches if b.lower().startswith(args.season.lower())]
+        target_batches = [
+            b for b in sorted_batches if b.lower().startswith(args.season.lower())
+        ]
     else:
         target_batches = sorted_batches
 
-    print(f"[3/3] Downloading {len(target_batches)} batches to '{output_path.resolve()}'...")
+    print(
+        f"[3/3] Downloading {len(target_batches)} batches to '{output_path.resolve()}'..."
+    )
     total_companies = 0
     all_summary = []
 
@@ -272,14 +284,20 @@ def main():
         filename = sanitize_batch_filename(batch_name)
         file_path = output_path / filename
 
-        print(f"  [{idx:2d}/{len(target_batches)}] Fetching {batch_name:<15} (~{expected_count} companies)...", end="", flush=True)
+        print(
+            f"  [{idx:2d}/{len(target_batches)}] Fetching {batch_name:<15} (~{expected_count} companies)...",
+            end="",
+            flush=True,
+        )
         try:
             hits = fetch_companies_for_batch(app_id, api_key, batch_name)
             rows = [transform_company_to_row(c) for c in hits]
             save_batch_csv(file_path, rows)
             count = len(rows)
             total_companies += count
-            all_summary.append({"Batch": batch_name, "Companies": count, "File": filename})
+            all_summary.append(
+                {"Batch": batch_name, "Companies": count, "File": filename}
+            )
             print(f" saved {count} companies -> {filename}")
         except Exception as e:
             print(f" failed ({e})")
@@ -288,7 +306,9 @@ def main():
         time.sleep(0.05)
 
     print("\n" + "=" * 60)
-    print(f"[+] Finished! Successfully saved {total_companies:,} companies across {len(target_batches)} batches.")
+    print(
+        f"[+] Finished! Successfully saved {total_companies:,} companies across {len(target_batches)} batches."
+    )
     print(f"[+] Output directory: {output_path.resolve()}")
     print("=" * 60)
 

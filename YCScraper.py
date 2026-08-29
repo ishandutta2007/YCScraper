@@ -176,4 +176,3 @@ try:
         )
 finally:
     driver.quit()
-

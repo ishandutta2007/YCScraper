@@ -319,7 +319,7 @@ def count_string_in_list(all_data, target="N/A"):
 if __name__ == "__main__":
     all_data = []
     for batch in batches:
-        if batch!="" and is_string_in_csv(batch.replace(" ", "_")):
+        if batch != "" and is_string_in_csv(batch.replace(" ", "_")):
             continue
         all_data.extend(scrape_500global_portfolio(batch.replace(" ", "%20")))
         if count_string_in_list(all_data) == len(all_data) * 3:
