@@ -179,7 +179,11 @@ def transform_company_to_row(company: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def sanitize_batch_filename(batch_name: str) -> str:
-    """Converts a batch name like 'Winter 2024' or 'Summer 2021' to a safe filename 'Winter_2024.csv'."""
+    """Converts a batch name like 'Winter 2024' or 'Summer 2021' to '{year}_{season}.csv' (e.g. '2024_Winter.csv')."""
+    match = re.search(r"^(Winter|Spring|Summer|Fall)\s+(\d{4})$", batch_name.strip(), re.IGNORECASE)
+    if match:
+        season, year = match.group(1).title(), match.group(2)
+        return f"{year}_{season}.csv"
     safe_name = re.sub(r"[^\w\s-]", "", batch_name).strip()
     safe_name = re.sub(r"[\s]+", "_", safe_name)
     return f"{safe_name}.csv"
