@@ -47,13 +47,24 @@ Before you begin, ensure you have the following installed:
 
 ### Usage
 
-To run the scraper, simply execute the main Python script:
+#### 1. Fetch Entire YC Batch Directory (API Data - One CSV per Batch)
+To quickly download all YC company batches (Winter, Spring, Summer, Fall) using YC's search API into individual CSV files under the `data/` folder:
+
+```bash
+python fetch_yc_batches.py
+```
+
+Options:
+- `--season`: Filter by specific season (e.g. `python fetch_yc_batches.py --season Winter`)
+- `--batch`: Download a single batch (e.g. `python fetch_yc_batches.py --batch "Summer 2024"`)
+- `--output-dir`: Custom output folder (default: `data/`)
+
+#### 2. Scrape Founder Social Links (Selenium)
+To run the Selenium scraper for extracting founder social media profiles:
 
 ```bash
 python YCScraper.py
 ```
-
-The script will automatically launch a browser, navigate through the YC company pages, and extract the founder social links. Once completed, the data will be saved into a CSV file (e.g., `yc_founders_social.csv` or `yc_founders_social_old.csv` based on project files) in the root directory of the project.
 
 ### Output Example
 The generated CSV file will typically have columns similar to this:
