@@ -4,7 +4,7 @@ fetch_yc_batches.py
 
 Fetches entire Y Combinator company directory data across all batches
 (Winter, Spring, Summer, Fall) using the public YC Algolia API and saves
-one CSV file per batch inside the 'data/' folder.
+one CSV file per batch inside the 'data/yc_bacthes/' folder.
 """
 
 import argparse
@@ -28,7 +28,7 @@ if sys.stdout.encoding != "utf-8":
         pass
 
 SCRIPT_DIR = Path(__file__).resolve().parent
-DEFAULT_DATA_DIR = SCRIPT_DIR / "data"
+DEFAULT_DATA_DIR = SCRIPT_DIR / "data/yc_bacthes"
 
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
 YC_COMPANIES_URL = "https://www.ycombinator.com/companies"
